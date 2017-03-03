@@ -1,0 +1,23 @@
+<div class="container">
+  <ol class="breadcrumb">
+    <li><a href="/">Главная</a></li>
+    <li>{{category.categoryPage.title}}</li>
+  </ol>
+
+  <h1>{{category.categoryPage.title}}</h1>
+
+	{{{category.categoryPage.description}}}
+
+	{{#each category.categoryPage.pages}}
+    <li>
+      <a href="/{{../category.path}}/{{this.path}}">
+				{{#if this.title_alias}}
+					{{this.title_alias}}
+				{{else}}
+					{{this.title}}
+				{{/if}}
+			</a>
+      <div>{{{this.introtext}}}</div>
+    </li>
+	{{/each}}
+</div>

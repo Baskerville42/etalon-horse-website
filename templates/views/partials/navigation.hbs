@@ -1,0 +1,51 @@
+{{! @links - Array with menu items
+		@section - Uses for show active item in the menu }}
+
+<ul class="nav navbar-nav navbar-left">
+	{{#each links}}
+		{{#ifeq type 'Home'}}
+			<li {{#ifeq ../section path}}class="active"{{else}}{{/ifeq}}>
+				<a href="/" target="{{browserNav}}">{{ title }}</a>
+			</li>
+		{{/ifeq}}
+
+		{{#ifeq type 'Hardcoded'}}
+			<li {{#ifeq ../section path}}class="active"{{else}}{{/ifeq}}>
+				<a href="/{{path}}" target="{{browserNav}}">{{ title }}</a>
+			</li>
+		{{/ifeq}}
+
+		{{#ifeq type 'Single'}}
+			<li {{#ifeq ../section path}}class="active"{{else}}{{/ifeq}}>
+				<a href="/{{ path }}" target="{{browserNav}}">{{ title }}</a>
+			</li>
+		{{/ifeq}}
+
+		{{#ifeq type 'Category'}}
+			<li class="dropdown">
+				<a href="/{{path}}"
+					 {{#if ../selectedCategory}}
+						 {{#ifeq ../selectedCategory path}}class="active dropdown-toggle"{{else}}class="dropdown-toggle"{{/ifeq}}
+					 {{else}}
+						 {{#ifeq ../section path}}class="active dropdown-toggle"{{else}}class="dropdown-toggle"{{/ifeq}}
+					 {{/if}}
+					 role="button" aria-haspopup="true"
+					 aria-expanded="false" target="{{browserNav}}">{{this.title}} <span
+								class="caret"></span></a>
+				<ul class="dropdown-menu">
+					{{#each categoryPage.pages}}
+						<li {{#ifeq ../../section path}}class="active"{{/ifeq}}>
+							<a href="/{{../path}}/{{ path }}">
+								{{#if title_alias}}
+									{{title_alias}}
+								{{else}}
+									{{title}}
+								{{/if}}
+							</a>
+						</li>
+					{{/each}}
+				</ul>
+			</li>
+		{{/ifeq}}
+	{{/each}}
+</ul>

@@ -33,7 +33,7 @@ gulp.task('watch', [
 
   'watch:sass',
 
-  'watch:lint'
+  // 'watch:lint'
 ]);
 
 gulp.task('default', ['watch', 'runKeystone']);

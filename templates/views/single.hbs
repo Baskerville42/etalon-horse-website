@@ -1,0 +1,18 @@
+<div class="container">
+  <ol class="breadcrumb">
+    <li><a href="/">Главная</a></li>
+		{{#ifeq page.type 'Category'}}
+      <li><a href="/{{page.category.path}}">{{page.category.title}}</a></li>
+		{{/ifeq}}
+    <li>
+			{{#if page.title_alias}}
+				{{page.title_alias}}
+			{{else}}
+				{{page.title}}
+			{{/if}}
+		</li>
+  </ol>
+	
+	{{{page.fulltext}}}
+	{{{page.singlePage.fulltext}}}
+</div>

@@ -9,10 +9,10 @@ var handlebars = require('express-handlebars');
 keystone.init({
 
 	'name': 'etalon-horse-website',
-	'brand': 'etalon-horse-website',
+	'brand': 'Etalon Horse Club',
 
 	'sass': 'public',
-'static': 'public',
+	'static': 'public',
 	'favicon': 'public/favicon.ico',
 	'views': 'templates/views',
 	'view engine': 'hbs',
@@ -45,6 +45,8 @@ keystone.set('locals', {
 
 keystone.set('routes', require('./routes'));
 
+keystone.set('mandrill api key', 'jv0HahODxA0Y4KhA3z4srg');
+keystone.set('mandrill username', 'PE Tartmin O.S.');
 
 keystone.set('email locals', {
 	logo_src: '/images/logo-email.gif',
@@ -70,7 +72,11 @@ keystone.Email.defaults.templateEngine = require('handlebars');
 
 
 keystone.set('nav', {
+	config: 'configs',
+	home: 'homes',
 	users: 'users',
+	contents: ['menus', 'pages', 'categories'],
+	conversations: 'conversations'
 });
 
 keystone.start();
