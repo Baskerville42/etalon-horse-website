@@ -20,10 +20,3 @@
 
 // Add your own site style includes here
 @import "site/layout";
-
-.dropdown:hover > ul {
-  display: block;
-}
-.active.dropdown-toggle {
-  background-color: #d0d0d0;
-}

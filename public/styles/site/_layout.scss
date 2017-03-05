@@ -14,3 +14,11 @@
     max-width: 100%;
     height: auto;
 }
+
+.dropdown:hover > ul {
+  display: block;
+}
+
+.active.dropdown-toggle {
+  background-color: #d0d0d0;
+}
