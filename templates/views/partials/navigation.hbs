@@ -21,6 +21,15 @@
 			</li>
 		{{/ifeq}}
 
+		{{#ifeq type 'External'}}
+			<li>
+				<a href="{{ externalLink }}" target="{{browserNav}}">
+					<i class="glyphicon glyphicon-new-window" aria-hidden="true"></i> 
+					{{ title }}
+				</a>
+			</li>
+		{{/ifeq}}
+
 		{{#ifeq type 'Category'}}
 			<li class="dropdown">
 				<a href="/{{path}}"

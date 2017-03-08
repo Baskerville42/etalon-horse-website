@@ -45,7 +45,7 @@ Menu.add(
 	{
 		type: { // The type of link: Single, Category, Hardcoded.
 			type: Types.Select,
-			options: ['Home', 'Single', 'Category', 'Hardcoded'],
+			options: ['Home', 'Single', 'Category', 'Hardcoded', 'External'],
 			default: 'Hardcoded',
 			note: 'The type of link'
 		},
@@ -61,6 +61,11 @@ Menu.add(
 			ref: 'Category',
 			dependsOn: {type: 'Category'},
 			label: 'Category'
+		},
+		externalLink: {
+			type: Types.Text,
+			dependsOn: {type: 'External'},
+			label: 'External URL'
 		},
 		browserNav: { // The click behaviour for the link.
 			type: Types.Select,
