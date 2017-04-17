@@ -1,0 +1,23 @@
+.ui.breadcrumbs {
+  font-family: $font1;
+  font-size: 1rem;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  margin: 2.8em 0;
+  
+  li {
+	font-size: 1.4em;
+	color: $brown5;
+	
+	&:not(:last-child):after {
+	  content: '/';
+	  margin: 0 .3em;
+	}
+  }
+  
+  a {
+	color: $brown5;
+	text-decoration: none;
+  }
+}

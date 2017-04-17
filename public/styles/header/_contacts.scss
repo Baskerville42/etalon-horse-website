@@ -1,0 +1,12 @@
+.ui.header.contacts {
+  background-color: $brown3;
+  height: $header_contacts_height;
+
+  @media screen and (max-width: $desktop_size) {
+    display: none;
+  }
+
+  .ui.container {
+	height: 100%;
+  } 
+}

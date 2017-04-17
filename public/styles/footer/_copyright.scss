@@ -1,0 +1,17 @@
+.copyright {
+  font-size: 1rem;
+  font-family: $font1;
+  background-color: $brown1;
+  height: $footer_copyright_height;
+  display: flex;
+  align-items: center;
+  
+  p {
+	font-size: 1.4em;
+	color: white;
+
+	@media screen and (max-width: $desktop_size) {
+	  padding: 0 1.4em;
+	}
+  }
+}

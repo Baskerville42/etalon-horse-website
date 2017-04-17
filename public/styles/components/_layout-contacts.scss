@@ -1,0 +1,43 @@
+.ui.layout-contacts {
+  font-family: $font1;
+  font-size: 1rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  height: 100%;
+
+  li {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	height: 100%;
+
+	&:not(:last-child) {
+	  margin-right: 8em;
+	}
+
+	&:hover {
+
+	  a {
+		color: $green1;
+	  }
+	}
+  }
+
+  .fa {
+	font-size: 1.8em;
+	color: $green1;
+	margin-right: 1.5rem;
+  }
+
+  a {
+	font-size: 1.4em;
+	color: white;
+	text-decoration: none;
+	transition: color 300ms ease-in;
+	will-change: color;
+	display: flex;
+	align-items: center;
+	height: 100%;
+  }
+}

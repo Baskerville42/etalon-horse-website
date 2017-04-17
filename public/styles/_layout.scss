@@ -1,0 +1,47 @@
+.ui.layout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  > header {
+	position: relative;
+	z-index: 1000;
+
+    @media screen and (max-width: $desktop_size) {
+      flex: 0 1 $header_menu_height;
+    }
+
+    @media screen and (min-width: $desktop_size) {
+      flex: 0 1 $header_contacts_height + $header_menu_height;
+    }
+  }
+
+  > main {
+	font-size: 1.4rem;
+    //overflow: scroll;
+    flex: 1 1 auto;
+  }
+
+  > footer {
+
+	@media screen and (max-width: $desktop_size) {
+	  flex: 0 1 $footer_copyright_height;
+	}
+
+	@media screen and (min-width: $desktop_size) {
+	  flex: 0 1 $footer_content_height + $footer_copyright_height;
+	}
+  }
+}
+
+.ui.container {
+
+  @media screen and (max-width: $desktop_size) {
+    width: 100%;
+  }
+
+  @media screen and (min-width: $desktop_size) {
+    width: $container_desktop_width;
+    margin: auto;
+  }
+}
