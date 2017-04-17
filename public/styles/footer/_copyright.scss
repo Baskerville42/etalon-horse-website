@@ -9,6 +9,8 @@
   p {
 	font-size: 1.4em;
 	color: white;
+	line-height: 1.15;
+	margin: 1rem 0;
 
 	@media screen and (max-width: $desktop_size) {
 	  padding: 0 1.4em;
