@@ -36,3 +36,14 @@ p {
   line-height: 1.9;
   margin: 2.06rem 0 0;
 }
+
+p ~ h1, p ~ h2 {
+  margin-top: 3.27rem;
+}
+
+a {
+  font-size: inherit;
+  font-family: $font1;
+  color: $green1;
+  text-decoration: underline;
+}
