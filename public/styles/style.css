@@ -3562,7 +3562,7 @@ a {
       margin: 0 .3em; }
   .ui.breadcrumbs a {
     color: #3d3a37;
-    text-decoration: none; }
+    text-decoration: underline; }
 
 .ui.layout-contacts {
   font-family: "Open Sans", sans-serif;
@@ -3625,7 +3625,7 @@ a {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  margin: 3em -2.3em 0; }
+  margin: 5.8em -2.3em 0; }
   .ui.thumbnails .item {
     flex: 0 0 25%;
     color: white;
