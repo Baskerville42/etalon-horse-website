@@ -22,54 +22,52 @@ exports = module.exports = function (req, res) {
 				return;
 			}
 
-			if (!!data) {
-				if (!!data.type && data.type === 'Single') {
-					Menu.model
-						.populate(data, {
-							path: 'singlePage',
-							model: 'Page'
-						}, function (err, page) {
+			if (!!data.type && data.type === 'Single') {
+				Menu.model
+					.populate(data, {
+						path: 'singlePage',
+						model: 'Page'
+					}, function (err, page) {
 
-							locals.meta = {
-								keywords: page.singlePage.metakey,
-								description: page.singlePage.metadesc
-							};
+						locals.meta = {
+							keywords: page.singlePage.metakey,
+							description: page.singlePage.metadesc
+						};
 
-							locals.pageTitle = page.singlePage.title;
+						locals.pageTitle = page.singlePage.title;
 
-							view.render('single', {
-								page,
-								type: 'single'
-							});
+						view.render('single', {
+							page,
+							type: 'single'
 						});
+					});
 
-					return;
-				}
+				return;
+			}
 
-				if (!!data.type && data.type === 'Category') {
-					Menu.model
-						.populate(data, {
-							path: 'categoryPage.pages',
-							model: 'Page'
-						}, function (err, category) {
-							res.locals.meta = {
-								keywords: category.categoryPage.metakey,
-								description: category.categoryPage.metadesc
-							};
+			if (!!data.type && data.type === 'Category') {
+				Menu.model
+					.populate(data, {
+						path: 'categoryPage.pages',
+						model: 'Page'
+					}, function (err, category) {
+						res.locals.meta = {
+							keywords: category.categoryPage.metakey,
+							description: category.categoryPage.metadesc
+						};
 
-							locals.pageTitle = category.categoryPage.title;
+						locals.pageTitle = category.categoryPage.title;
 
-							view.render('category', {
-								category
-							});
+						view.render('category', {
+							category
 						});
+					});
 
-					return;
-				}
+				return;
+			}
 
-				if (!!data.type && data.type === 'Hardcoded') {
-					view.render('contacts');
-				}
+			if (!!data.type && data.type === 'Hardcoded') {
+				view.render('contacts');
 			}
 		});
 };
