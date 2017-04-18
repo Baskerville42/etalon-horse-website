@@ -39,6 +39,11 @@ Menu.add(
 			type: Types.Textarea,
 			height: 5
 		},
+		cssClass: {
+			type: Types.Text,
+			label: 'CSS Class of the page',
+			default: null
+		}
 	},
 	
 	{heading: 'Content'},
