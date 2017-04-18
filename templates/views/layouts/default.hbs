@@ -81,14 +81,23 @@
 </div>
 
 <script src="/javascript/vendors/swiper/swiper.min.js"></script>
-<script src="/javascript/script.js"></script>
 <script>
+	// Add Open Sans font
 	window.onload = function () {
-	  var link = document.createElement('link');
-	  link.rel = 'stylesheet';
-	  link.href = 'https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i,700,700i&amp;subset=cyrillic-ext';
-	  document.head.appendChild(link);
+		var link = document.createElement('link');
+		link.rel = 'stylesheet';
+		link.href = 'https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i,700,700i&amp;subset=cyrillic-ext';
+		document.head.appendChild(link);
 	};
+
+	// Init Main Slider
+	var topSlider = new Swiper('.top-slider.swiper-container', {
+		speed: 400,
+		spaceBetween: 0,
+		nextButton: '.top-slider .slider-button-next',
+		prevButton: '.top-slider .slider-button-prev',
+		loop: true
+	});
 </script>
 
 {{{isAdminEditorJS user}}}
