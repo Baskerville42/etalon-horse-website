@@ -82,8 +82,14 @@
 
 <script src="/javascript/vendors/swiper/swiper.min.js"></script>
 <script src="/javascript/script.js"></script>
-
-<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i,700,700i&amp;subset=cyrillic-ext" rel="stylesheet" defer>
+<script>
+	window.onload = function () {
+	  var link = document.createElement('link');
+	  link.rel = 'stylesheet';
+	  link.href = 'https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i,700,700i&amp;subset=cyrillic-ext';
+	  document.head.appendChild(link);
+	};
+</script>
 
 {{{isAdminEditorJS user}}}
 </body>
