@@ -97,7 +97,21 @@
 		var container = document.getElementById('map');
 		var map = new google.maps.Map(container, {
 			zoom: 13,
-			center: club
+			center: club,
+			disableDefaultUI: true,
+			zoomControl: true,
+			zoomControlOptions: {
+				position: google.maps.ControlPosition.LEFT_TOP
+			},
+			mapTypeControl: true,
+			scaleControl: false,
+			streetViewControl: true,
+			streetViewControlOptions: {
+				position: google.maps.ControlPosition.LEFT_TOP
+			},
+			rotateControl: true,
+			fullscreenControl: false,
+			scrollwheel: false,
 		});
 		var markerImage = '/images/contacts-map-marker.png';
 		var marker = new google.maps.Marker({
