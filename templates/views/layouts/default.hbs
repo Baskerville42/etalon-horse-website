@@ -80,6 +80,7 @@
 	</footer>
 </div>
 
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgfZyWqUa1igG4laoy_Lr_lamqUAfgL08&callback=initMap"></script>
 <script src="/javascript/vendors/swiper/swiper.min.js"></script>
 <script>
 	// Add Open Sans font
@@ -89,6 +90,23 @@
 		link.href = 'https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i,700,700i&amp;subset=cyrillic-ext';
 		document.head.appendChild(link);
 	};
+	
+	// Init Map
+	function initMap() {
+		var club = {lat: 50.321178, lng: 30.306885};
+		var container = document.getElementById('map');
+		var map = new google.maps.Map(container, {
+			zoom: 13,
+			center: club
+		});
+		var markerImage = '/images/contacts-map-marker.png';
+		var marker = new google.maps.Marker({
+			position: club,
+			map: map,
+			icon: markerImage
+		});
+		map.panBy( window.innerWidth / 4, 25);
+	}
 
 	// Init Main Slider
 	var topSlider = new Swiper('.top-slider.swiper-container', {
