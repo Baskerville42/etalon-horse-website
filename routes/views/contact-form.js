@@ -26,7 +26,7 @@ exports = module.exports = function (req, res) {
 		const newConversation = new Conversation.model(data);
 
 		newConversation.save(function () {
-			req.flash('info', {detail: 'Мы получили ваше сообщение. Cпасибо!'});
+			req.flash('info', {detail: 'Мы получили ваше сообщение. Спасибо!'});
 			res.redirect('/contacts');
 		});
 	});

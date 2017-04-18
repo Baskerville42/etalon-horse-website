@@ -1,0 +1,18 @@
+.ui.btn {
+  background-color: $green3;
+  font-size: 1rem;
+  font-family: $font1;
+  font-weight: 600;
+  min-width: 18.5em;
+  padding: 1em 1em;
+  color: white;
+  display: inline-block;
+  border: 0;
+  border-radius: 10rem;
+  cursor: pointer;
+}
+
+.ui.btn-default {
+  font-size: 1.6rem;
+  min-width: 11.5em;
+}
