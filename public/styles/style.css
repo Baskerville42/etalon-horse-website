@@ -3721,6 +3721,8 @@ a {
 
 .contacts-page .ui.layout main {
   padding-bottom: 0; }
+.contacts-page .ui.contact-form {
+  margin-top: 3rem; }
 
 .top-slider {
   font-size: 1rem;
