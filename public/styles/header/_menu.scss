@@ -227,6 +227,16 @@
 		position: absolute;
 		padding: 1em 0;
 		
+		li {
+		  
+		  &.active {
+			
+			a {
+			  color: $green1;
+			}
+		  }
+		}
+		
 		a {
 		  white-space: nowrap;
 		  line-height: 2;

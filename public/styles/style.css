@@ -3512,6 +3512,8 @@ a {
     background-color: rgba(54, 52, 49, 0.85);
     position: absolute;
     padding: 1em 0; }
+    .ui.header.menu .menu ul li.active a {
+      color: #a4cf57; }
     .ui.header.menu .menu ul a {
       white-space: nowrap;
       line-height: 2; } }
