@@ -3780,11 +3780,13 @@ a {
 
 .top-slider {
   font-size: 1rem;
-  width: 100vw;
-  position: relative;
-  top: -9em;
-  z-index: 900;
-  margin-bottom: -9em; }
+  width: 100vw; }
+  @media screen and (min-width: 1025px) {
+    .top-slider {
+      position: relative;
+      top: -13.5rem;
+      margin-bottom: -13.5rem;
+      z-index: 900; } }
   .top-slider img {
     max-width: 100%; }
   .top-slider .slider-button-prev,
@@ -3792,7 +3794,7 @@ a {
     background-color: rgba(226, 218, 214, 0.349);
     position: absolute;
     top: 50%;
-    transform: translateY(-50%);
+    transform: translateY(5%);
     box-shadow: 0 0 2.4em 0 rgba(0, 0, 0, 0.39);
     border-radius: 50rem;
     width: 11.1em;
@@ -3801,7 +3803,12 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white; }
+    color: white;
+    cursor: pointer; }
+    @media screen and (max-width: 1025px) {
+      .top-slider .slider-button-prev,
+      .top-slider .slider-button-next {
+        display: none; } }
     .top-slider .slider-button-prev:before,
     .top-slider .slider-button-next:before {
       font-family: "Open Sans", sans-serif;
