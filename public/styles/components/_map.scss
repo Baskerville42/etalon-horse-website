@@ -4,6 +4,7 @@
   position: relative;
   height: 57.7em;
   width: 100vw;
+  overflow: hidden;
   
   #map {
 	height: 100%;
@@ -17,6 +18,7 @@
 	top: 0;
 	bottom: 0;
 	right: calc(50vw - #{$container_desktop_width} / 2);
+	box-shadow: 0 6px 5px 0 rgba(black, .47);
   }
   
   ul {
@@ -51,5 +53,24 @@
 	&:before {
 	  line-height: 2.5;
 	}
+  }
+  
+  p {
+	padding: 0 4.4em;
+	
+	&:not(:last-child) {
+	  margin: 0 0 2.06rem;
+	}
+  }
+}
+
+.ui.map {
+
+  .text.legend {
+	border-color: $orange1;
+	border-width: .8em;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
   }
 }
