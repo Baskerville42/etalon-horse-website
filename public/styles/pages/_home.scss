@@ -5,7 +5,7 @@
   @media screen and (min-width: $desktop_size) {
 	position: relative;
 	top: -#{$header_menu_height + $header_contacts_height};
-	margin-bottom: -#{$header_menu_height + $header_contacts_height};
+	margin-bottom: calc(-#{$header_menu_height} + 1rem);
 	z-index: 900;
   }
   
@@ -61,6 +61,25 @@
 
 .home-page {
   
+  h1 {
+	text-transform: uppercase;
+	// display: block;
+	text-align: center;
+	display: none;
+  }
+  
+  h2 {
+	text-transform: uppercase;
+	display: block;
+	min-width: 38.5rem;
+	width: 38.5rem;
+	max-width: 50%;
+	border-bottom: 1px solid $brown6;
+	text-align: center;
+	padding-bottom: 1.15em;
+	margin: .67rem auto 0;
+  }
+  
   .ui.map {
 	height: 42.7em;
 	margin-top: 6em;
@@ -68,5 +87,13 @@
   
   .ui.layout main {
 	padding-bottom: 0;
+
+	.ui.container {
+	  text-align: center;
+
+	  .ui.btn {
+		margin-top: 4rem;
+	  }
+	}
   }
 }
