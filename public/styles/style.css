@@ -3827,7 +3827,8 @@ a {
       content: '\203A'; }
 
 .home-page .ui.map {
-  height: 42.7em; }
+  height: 42.7em;
+  margin-top: 6em; }
 .home-page .ui.layout main {
   padding-bottom: 0; }
 
