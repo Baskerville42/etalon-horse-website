@@ -12,9 +12,14 @@
   cursor: pointer;
   text-decoration: none;
   text-align: center;
+  transition: background-color 300ms linear;
 }
 
 .ui.btn-default {
   font-size: 1.6rem;
   min-width: 11.5em;
+}
+
+.ui.orange.btn:not(:hover) {
+  background-color: $orange2;
 }

@@ -11,7 +11,6 @@
   src: url("../fonts/fontawesome-webfont.eot?#iefix&v=4.7.0") format("embedded-opentype"), url("../fonts/fontawesome-webfont.woff2?v=4.7.0") format("woff2"), url("../fonts/fontawesome-webfont.woff?v=4.7.0") format("woff"), url("../fonts/fontawesome-webfont.ttf?v=4.7.0") format("truetype"), url("../fonts/fontawesome-webfont.svg?v=4.7.0#fontawesomeregular") format("svg");
   font-weight: normal;
   font-style: normal; }
-
 .fa {
   display: inline-block;
   font: normal normal normal 14px/1 FontAwesome;
@@ -71,7 +70,6 @@
 
 .fa.fa-pull-left {
   margin-right: .3em; }
-
 .fa.fa-pull-right {
   margin-left: .3em; }
 
@@ -84,7 +82,6 @@
 
 .fa.pull-left {
   margin-right: .3em; }
-
 .fa.pull-right {
   margin-left: .3em; }
 
@@ -103,7 +100,6 @@
   100% {
     -webkit-transform: rotate(359deg);
     transform: rotate(359deg); } }
-
 @keyframes fa-spin {
   0% {
     -webkit-transform: rotate(0deg);
@@ -111,7 +107,6 @@
   100% {
     -webkit-transform: rotate(359deg);
     transform: rotate(359deg); } }
-
 .fa-rotate-90 {
   -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=1)";
   -webkit-transform: rotate(90deg);
@@ -2896,11 +2891,9 @@ button.swiper-pagination-bullet {
 @-webkit-keyframes swiper-preloader-spin {
   100% {
     -webkit-transform: rotate(360deg); } }
-
 @keyframes swiper-preloader-spin {
   100% {
     transform: rotate(360deg); } }
-
 /*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
 /**
  * 1. Change the default font family in all browsers (opinionated).
@@ -3369,11 +3362,11 @@ a {
 @media screen and (max-width: 1025px) {
   .ui.container {
     width: 100%; } }
-
 @media screen and (min-width: 1025px) {
   .ui.container {
     width: 96rem;
-    margin: auto; } }
+    margin-right: auto;
+    margin-left: auto; } }
 
 .ui.header.contacts {
   background-color: #302f2e;
@@ -3387,11 +3380,9 @@ a {
 @keyframes menuBackDropBG {
   0% {
     background-color: transparent; } }
-
 @keyframes menuShow {
   0% {
     transform: translate3D(-100%, 0, 0); } }
-
 .ui.header.menu {
   font-family: "Open Sans", sans-serif;
   background-color: rgba(48, 47, 46, 0.72);
@@ -3589,11 +3580,15 @@ a {
   border-radius: 10rem;
   cursor: pointer;
   text-decoration: none;
-  text-align: center; }
+  text-align: center;
+  transition: background-color 300ms linear; }
 
 .ui.btn-default {
   font-size: 1.6rem;
   min-width: 11.5em; }
+
+.ui.orange.btn:not(:hover) {
+  background-color: #e2a53b; }
 
 .ui.contact-form {
   font-size: 1rem;
@@ -3789,23 +3784,13 @@ a {
 
 .contacts-page .ui.layout main {
   padding-bottom: 0; }
-
 .contacts-page .ui.contact-form {
   margin-top: 3rem; }
 
-.top-slider {
-  font-size: 1rem;
-  width: 100vw; }
-  @media screen and (min-width: 1025px) {
-    .top-slider {
-      position: relative;
-      top: -13.5rem;
-      margin-bottom: calc(-9rem + 1rem);
-      z-index: 900; } }
-  .top-slider img {
-    max-width: 100%; }
-  .top-slider .slider-button-prev,
-  .top-slider .slider-button-next {
+.swiper-container {
+  font-size: 1rem; }
+  .swiper-container .slider-button-prev,
+  .swiper-container .slider-button-next {
     background-color: rgba(226, 218, 214, 0.349);
     position: absolute;
     top: 50%;
@@ -3821,29 +3806,90 @@ a {
     color: white;
     cursor: pointer; }
     @media screen and (max-width: 1025px) {
-      .top-slider .slider-button-prev,
-      .top-slider .slider-button-next {
+      .swiper-container .slider-button-prev,
+      .swiper-container .slider-button-next {
         display: none; } }
-    .top-slider .slider-button-prev:before,
-    .top-slider .slider-button-next:before {
+    .swiper-container .slider-button-prev:before,
+    .swiper-container .slider-button-next:before {
       font-family: "Open Sans", sans-serif;
       font-size: 6em;
       height: 1em;
       line-height: .8; }
-  .top-slider .slider-button-prev {
+  .swiper-container .slider-button-prev {
     left: 9em; }
-    .top-slider .slider-button-prev:before {
+    .swiper-container .slider-button-prev:before {
       content: '\2039'; }
-  .top-slider .slider-button-next {
+  .swiper-container .slider-button-next {
     right: 9em; }
-    .top-slider .slider-button-next:before {
+    .swiper-container .slider-button-next:before {
       content: '\203A'; }
+
+.top-slider {
+  width: 100vw; }
+  @media screen and (min-width: 1025px) {
+    .top-slider {
+      position: relative;
+      top: -13.5rem;
+      margin-bottom: calc(-9rem + 1rem);
+      z-index: 900; } }
+  .top-slider img {
+    max-width: 100%; }
+
+.services-slider {
+  margin-top: 4.4em;
+  position: static; }
+  .services-slider .swiper-slide {
+    position: relative;
+    font-family: "Open Sans", sans-serif;
+    font-size: 1rem; }
+    .services-slider .swiper-slide:before {
+      background-color: white;
+      content: '';
+      display: block;
+      width: 100%;
+      position: absolute;
+      top: 10.2em;
+      bottom: 3em;
+      z-index: -1; }
+  .services-slider .image-wrapper {
+    width: 20.6em;
+    height: 20.6em;
+    position: relative;
+    overflow: hidden;
+    border: 1em solid #f4f4f3;
+    border-radius: 500rem;
+    margin: 0 auto 2.9em; }
+    .services-slider .image-wrapper img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      max-width: 100%; }
+  .services-slider h3 {
+    color: #2d2b29;
+    font-size: 2.2em;
+    font-weight: 400;
+    margin: 0;
+    padding: 0 3em;
+    line-height: 1.35; }
+  .services-slider p {
+    font-size: 1.6em;
+    font-weight: 100;
+    color: #605858;
+    margin: 1.65em 0 0;
+    padding: 0 2em;
+    line-height: 1.55; }
+  .services-slider .ui.btn {
+    border: 0.6rem solid #f4f4f3;
+    min-width: 20.2rem;
+    margin: 2.3em 0 0 !important;
+    padding: .94em 0;
+    font-size: 1.6em; }
 
 .home-page h1 {
   text-transform: uppercase;
   text-align: center;
   display: none; }
-
 .home-page h2 {
   text-transform: uppercase;
   display: block;
@@ -3854,14 +3900,50 @@ a {
   text-align: center;
   padding-bottom: 1.15em;
   margin: .67rem auto 0; }
-
+.home-page .about {
+  margin-bottom: 5.15em;
+  text-align: center; }
+  .home-page .about .ui.btn {
+    margin-top: 4rem; }
+.home-page .services {
+  background-color: #f4f4f3;
+  padding-top: 9.4em;
+  padding-bottom: 11.8em;
+  position: relative; }
+.home-page .coaches {
+  margin-top: 8em;
+  margin-bottom: 5.4em; }
+  .home-page .coaches .ui.btn {
+    margin-top: 3.1em !important; }
+.home-page .coaches-list {
+  font-size: 1rem;
+  font-family: "Open Sans", sans-serif;
+  display: flex;
+  flex-direction: row;
+  margin-top: 5.7em; }
+  .home-page .coaches-list .item:not(:last-child) {
+    margin-right: 3.9em; }
+  .home-page .coaches-list .item figure {
+    position: relative;
+    margin: 0; }
+  .home-page .coaches-list .item figcaption {
+    font-size: 1.9em;
+    font-style: italic;
+    width: 100%;
+    position: absolute;
+    bottom: .05em;
+    height: 3.05em;
+    color: white;
+    background-color: rgba(54, 52, 49, 0.72);
+    display: flex;
+    align-items: center;
+    justify-content: center; }
 .home-page .ui.map {
   height: 42.7em;
   margin-top: 6em; }
-
 .home-page .ui.layout main {
   padding-bottom: 0; }
   .home-page .ui.layout main .ui.container {
     text-align: center; }
-    .home-page .ui.layout main .ui.container .ui.btn {
-      margin-top: 4rem; }
+
+/*# sourceMappingURL=style.css.map */

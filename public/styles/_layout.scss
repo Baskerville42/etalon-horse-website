@@ -42,6 +42,7 @@
 
   @media screen and (min-width: $desktop_size) {
     width: $container_desktop_width;
-    margin: auto;
+    margin-right: auto;
+    margin-left: auto;
   }
 }
