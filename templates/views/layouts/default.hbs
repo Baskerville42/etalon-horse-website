@@ -129,7 +129,20 @@
 		spaceBetween: 0,
 		nextButton: '.top-slider .slider-button-next',
 		prevButton: '.top-slider .slider-button-prev',
-		loop: true
+		loop: true,
+		effect: 'fade'
+	});
+	
+	// Init services slider
+	var servicesSlider = new Swiper('.services-slider.swiper-container', {
+		speed: 400,
+		spaceBetween: 29,
+		nextButton: '.services-slider .slider-button-next',
+		prevButton: '.services-slider .slider-button-prev',
+		loop: true,
+		slidesPerView: 3,
+		setWrapperSize: true,
+		width: 960
 	});
 </script>
 
