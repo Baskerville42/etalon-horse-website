@@ -15,4 +15,10 @@
 	
 	{{{page.fulltext}}}
 	{{{page.singlePage.fulltext}}}
+	
+	{{#if page.slider.length}}
+		{{#each page.slider as |image|}}
+			<img src="{{cloudinaryUrl image}}" alt="">
+		{{/each}}
+	{{/if}}
 </div>

@@ -35,6 +35,8 @@ keystone.init({
 	'wysiwyg additional options': {
 		forced_root_block : ''
 	},
+	
+	'cloudinary folders': true,
 
 });
 

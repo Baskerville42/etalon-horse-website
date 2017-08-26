@@ -66,6 +66,7 @@ Page.add(
 			ref: 'Category',
 			dependsOn: {type: 'Category'}
 		},
+		slider: { type: Types.CloudinaryImages, folder: 'etalon-horse-website' }
 	},
 
 	{heading: 'SEO Settings'},
