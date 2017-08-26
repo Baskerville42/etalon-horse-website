@@ -13,8 +13,9 @@
 	<title>Etalon Horse Club {{#if pageTitle}}| {{pageTitle}}{{/if}}</title>
 	
 	{{{isAdminEditorCSS user}}}
+
+	<style type="text/css">{{inlineCSS}}</style>
 	
-	<link rel="stylesheet" href="/styles/style.css" defer>
 	<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-69831730-1', 'auto');ga('send', 'pageview');</script>
 </head>
 <body {{#if bodyClass}}class="{{bodyClass}}"{{/if}}>
@@ -83,68 +84,7 @@
 
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgfZyWqUa1igG4laoy_Lr_lamqUAfgL08&callback=initMap"></script>
 <script src="/javascript/vendors/swiper/swiper.min.js"></script>
-<script>
-	// Add Open Sans font
-	window.onload = function () {
-		var link = document.createElement('link');
-		link.rel = 'stylesheet';
-		link.href = 'https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,600i,700,700i&amp;subset=cyrillic-ext';
-		document.head.appendChild(link);
-	};
-	
-	// Init Map
-	function initMap() {
-		var club = {lat: 50.321178, lng: 30.306885};
-		var container = document.getElementById('map');
-		var map = new google.maps.Map(container, {
-			zoom: parseInt(container.getAttribute('data-zoom')) || 13,
-			center: club,
-			disableDefaultUI: true,
-			zoomControl: true,
-			zoomControlOptions: {
-				position: google.maps.ControlPosition.LEFT_TOP
-			},
-			mapTypeControl: true,
-			scaleControl: false,
-			streetViewControl: true,
-			streetViewControlOptions: {
-				position: google.maps.ControlPosition.LEFT_TOP
-			},
-			rotateControl: true,
-			fullscreenControl: false,
-			scrollwheel: false,
-		});
-		var markerImage = '/images/contacts-map-marker.png';
-		var marker = new google.maps.Marker({
-			position: club,
-			map: map,
-			icon: markerImage
-		});
-		map.panBy( window.innerWidth / 4, 25);
-	}
-
-	// Init Main Slider
-	var topSlider = new Swiper('.top-slider.swiper-container', {
-		speed: 400,
-		spaceBetween: 0,
-		nextButton: '.top-slider .slider-button-next',
-		prevButton: '.top-slider .slider-button-prev',
-		loop: true,
-		effect: 'fade'
-	});
-	
-	// Init services slider
-	var servicesSlider = new Swiper('.services-slider.swiper-container', {
-		speed: 400,
-		spaceBetween: 29,
-		nextButton: '.services-slider .slider-button-next',
-		prevButton: '.services-slider .slider-button-prev',
-		loop: true,
-		slidesPerView: 3,
-		setWrapperSize: true,
-		width: 960
-	});
-</script>
+<script>{{inlineJS}}</script>
 
 {{{isAdminEditorJS user}}}
 </body>
