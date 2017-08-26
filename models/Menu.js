@@ -1,5 +1,15 @@
 var keystone = require('keystone');
+var fs = require('fs');
 var Types = keystone.Field.Types;
+
+var templateFiles = function () {
+	var files = fs.readdirSync('./templates/views/pages');
+	files = files.map(function (fileName) {
+		return fileName.split('.hbs')[0];
+	});
+	
+	return files;
+};
 
 /**
  * Menu Model
@@ -79,6 +89,12 @@ Menu.add(
 			label: 'Target',
 			note: 'The click behaviour for the link'
 		},
+	},
+
+	{heading: 'Template settings'},
+	{
+		useCustomTemplate: { type: Boolean, default: false },
+		template: { type: Types.Select, options: templateFiles(), dependsOn: { useCustomTemplate: true } }
 	},
 	
 	{heading: 'Publish settings'},

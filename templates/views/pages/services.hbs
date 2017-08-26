@@ -1,0 +1,33 @@
+<h1 style="color: red;">This is custom template!!!</h1>
+
+<div class="ui container">
+  <ol class="ui breadcrumbs">
+    <li><a href="/">Главная</a></li>
+    <li>{{category.categoryPage.title}}</li>
+  </ol>
+
+  <h1>{{category.categoryPage.title}}</h1>
+
+	{{{category.categoryPage.description}}}
+
+	<div class="ui thumbnails">
+		{{#each category.categoryPage.pages}}
+			<a class="item" href="/{{../category.path}}/{{this.path}}">
+				<figure>
+					<img src="/images/horse-example.png" alt="{{this.title}}">
+					<figcaption>
+						<h4>
+							{{#if this.title_alias}}
+								{{this.title_alias}}
+							{{else}}
+								{{this.title}}
+							{{/if}}
+						</h4>
+							
+						<div>{{{this.introtext}}}</div>
+					</figcaption>
+				</figure>
+			</a>
+		{{/each}}
+	</div>
+</div>

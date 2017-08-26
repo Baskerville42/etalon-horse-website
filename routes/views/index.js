@@ -36,7 +36,7 @@ exports = module.exports = function (req, res) {
 
 						locals.pageTitle = page.singlePage.title;
 
-						view.render('single', {
+						view.render(data.useCustomTemplate ? 'pages/' + data.template : 'single', {
 							page,
 							type: 'single'
 						});
@@ -58,7 +58,7 @@ exports = module.exports = function (req, res) {
 
 						locals.pageTitle = category.categoryPage.title;
 
-						view.render('category', {
+						view.render(data.useCustomTemplate ? 'pages/' + data.template : 'category', {
 							category
 						});
 					});
