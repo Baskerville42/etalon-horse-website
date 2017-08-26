@@ -12,7 +12,11 @@
 		{{#each category.categoryPage.pages}}
 			<a class="item" href="/{{../category.path}}/{{this.path}}">
 				<figure>
-					<img src="/images/horse-example.png" alt="{{this.title}}">
+					{{#if this.pageImage.exists}}
+						<img src="{{cloudinaryUrl this.pageImage width=222 height=239 crop='fill'}}" alt="{{this.title}}">
+					{{else}}
+						<img src="/images/horse-example.png" alt="{{this.title}}">
+					{{/if}}
 					<figcaption>
 						<h4>
 							{{#if this.title_alias}}
