@@ -72,7 +72,13 @@
 						{{else}}
 							<img src="/images/coach-example.png" alt="{{coach.title}}">
 						{{/if}}
-						<figcaption>{{{coach.introtext}}}</figcaption>
+						<figcaption>
+							{{#if coach.title_alias}}
+								{{coach.title_alias}}
+							{{else}}
+								{{coach.title}}
+							{{/if}}
+						</figcaption>
 					</figure>
 				</a>
 			{{/each}}
