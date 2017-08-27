@@ -28,46 +28,28 @@
 	
 	<div class="ui container services-slider swiper-container">
 		<div class="swiper-wrapper">
-			<div class="swiper-slide">
-				<div class="image-wrapper">
-					<img src="/images/service-example.png" alt="">
+			
+			{{#each page.services as |service|}}
+				<div class="swiper-slide">
+					<div class="image-wrapper">
+						{{#if service.pageImage.exists}}
+							<img src="{{cloudinaryUrl service.pageImage width=186 height=186 crop='fill'}}" alt="{{service.title}}">
+						{{else}}
+							<img src="/images/service-example.png" alt="{{service.title}}">
+						{{/if}}
+					</div>
+					<h3>
+						{{#if service.title_alias}}
+							{{service.title_alias}}
+						{{else}}
+							{{service.title}}
+						{{/if}}
+					</h3>
+					<p>{{{service.introtext}}}</p>
+					<a href="/services/{{service.path}}" class="ui orange btn">Узнать больше</a>
 				</div>
-				<h3>тренировки по верховой езде</h3>
-				<p>Lorem Ipsum is simply dummy text of the printing andtypesetting industry. Ipsum. Lorem Ipsum is simply</p>
-				<div class="ui orange btn">Узнать больше</div>
-			</div>
-			<div class="swiper-slide">
-				<div class="image-wrapper">
-					<img src="/images/service-example.png" alt="">
-				</div>
-				<h3>тренировки по верховой езде</h3>
-				<p>Lorem Ipsum is simply dummy text of the printing andtypesetting industry. Ipsum. Lorem Ipsum is simply</p>
-				<div class="ui orange btn">Узнать больше</div>
-			</div>
-			<div class="swiper-slide">
-				<div class="image-wrapper">
-					<img src="/images/service-example.png" alt="">
-				</div>
-				<h3>тренировки по верховой езде</h3>
-				<p>Lorem Ipsum is simply dummy text of the printing andtypesetting industry. Ipsum. Lorem Ipsum is simply</p>
-				<div class="ui orange btn">Узнать больше</div>
-			</div>
-			<div class="swiper-slide">
-				<div class="image-wrapper">
-					<img src="/images/service-example.png" alt="">
-				</div>
-				<h3>тренировки по верховой езде</h3>
-				<p>Lorem Ipsum is simply dummy text of the printing andtypesetting industry. Ipsum. Lorem Ipsum is simply</p>
-				<div class="ui orange btn">Узнать больше</div>
-			</div>
-			<div class="swiper-slide">
-				<div class="image-wrapper">
-					<img src="/images/service-example.png" alt="">
-				</div>
-				<h3>тренировки по верховой езде</h3>
-				<p>Lorem Ipsum is simply dummy text of the printing andtypesetting industry. Ipsum. Lorem Ipsum is simply</p>
-				<div class="ui orange btn">Узнать больше</div>
-			</div>
+			{{/each}}
+			
 		</div>
 
 		<div class="slider-button-prev"></div>
@@ -78,24 +60,20 @@
 <section class="ui coaches container">
 	<h2>Наши инструктора</h2>
 	<div class="coaches-list">
-		<a href="#" class="item">
-			<figure>
-				<img src="/images/coach-example.png" alt="">
-				<figcaption>Инна Крам</figcaption>
-			</figure>
-		</a>
-		<a href="#" class="item">
-			<figure>
-				<img src="/images/coach-example.png" alt="">
-				<figcaption>Юлия Заруда</figcaption>
-			</figure>
-		</a>
-		<a href="#" class="item">
-			<figure>
-				<img src="/images/coach-example.png" alt="">
-				<figcaption>Яна Заруда</figcaption>
-			</figure>
-		</a>
+		
+		{{#each page.coaches as |coach|}}
+			<a href="/coaches/{{coach.path}}" class="item">
+				<figure>
+					{{#if coach.pageImage.exists}}
+						<img src="{{cloudinaryUrl coach.pageImage width=294 height=321 crop='fill'}}" alt="{{coach.title}}">
+					{{else}}
+						<img src="/images/coach-example.png" alt="{{coach.title}}">
+					{{/if}}
+					<figcaption>{{{coach.introtext}}}</figcaption>
+				</figure>
+			</a>
+		{{/each}}
+		
 	</div>
 	<a href="/coaches" class="ui btn btn-default">Читать дальше</a>
 </section>

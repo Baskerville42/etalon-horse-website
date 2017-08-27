@@ -11,6 +11,7 @@ exports = module.exports = function (req, res) {
 
 	Home.model
 		.findOne()
+		.populate('services coaches')
 		.exec( (err, page) => view.render('index', {page}) );
 	
 };
