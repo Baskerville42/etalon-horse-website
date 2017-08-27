@@ -50,6 +50,11 @@ Page.add(
 	{heading: 'Content'},
 	{
 		pageImage: { type: Types.CloudinaryImage, folder: 'etalon-horse-website', autoCleanup: true, select : true, width: 222 },
+		description: {
+			type: Types.Textarea,
+			height: 5,
+			note: 'Define a short description of this page',
+		},
 		introtext: {
 			type: Types.Html,
 			wysiwyg: true

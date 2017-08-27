@@ -3880,7 +3880,11 @@ a {
   .services-slider .swiper-slide {
     position: relative;
     font-family: "Open Sans", sans-serif;
-    font-size: 1rem; }
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto; }
     .services-slider .swiper-slide:before {
       background-color: white;
       content: '';
@@ -3917,7 +3921,8 @@ a {
     color: #605858;
     margin: 1.65em 0 0;
     padding: 0 2em;
-    line-height: 1.55; }
+    line-height: 1.55;
+    flex: 1; }
   .services-slider .ui.btn {
     border: 0.6rem solid #f4f4f3;
     min-width: 20.2rem;
