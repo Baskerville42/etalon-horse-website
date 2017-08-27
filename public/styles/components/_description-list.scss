@@ -1,0 +1,44 @@
+.ui.description-list {
+  font-size: 1rem;
+  
+  .item {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	
+	&:not(:last-child) {
+	  margin-bottom: 5.7rem;
+	}
+	
+	.image {
+	  width: 29.5rem;
+	  margin-right: 3.4rem;
+	}
+	
+	.content {
+	  
+	}
+	
+	h4 {
+	  margin: -.2rem 0 0;
+	  font-size: 1.98em;
+	  color: $green6;
+	  text-transform: uppercase;
+	  
+	  a {
+		color: inherit;
+	  }
+	}
+	
+	h5 {
+	  margin: 1.8rem 0 0;
+	  font-size: 1.6em;
+	}
+	
+	p {
+	  margin-top: 1.2rem;
+	  margin-bottom: 1.8rem;
+	  line-height: 1.5;
+	}
+  }
+}

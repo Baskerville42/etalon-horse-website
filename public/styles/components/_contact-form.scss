@@ -1,0 +1,54 @@
+.ui.contact-form {
+  font-size: 1rem;
+  background-color: $grey2;
+  padding-top: 3em;
+  padding-bottom: 7.7em;
+  
+  .ui.container {
+	padding: 0 6em;
+  }
+
+  h3 {
+	text-transform: uppercase;
+	font-family: $font1;
+	font-size: 1.8em;
+	font-weight: 400;
+	display: block;
+	text-align: center;
+	color: $brown5;
+  }
+  
+  form {
+	text-align: center;
+	padding-top: 3.1em;
+  }
+  
+  .form-content {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	margin-bottom: 1.6em;
+  }
+  
+  textarea {
+	resize: none;
+  }
+  
+  .form-control {
+	flex: 1 1 calc(33% - 1.2em);
+	background-color: white;
+	border: 1px solid $grey3;
+	border-radius: .5rem;
+	color: $brown5;
+	font-size: 1.6em;
+	padding: .75em 1.35em;
+	margin: 0 .6em 1.2em;
+  }
+}
+
+::-webkit-input-placeholder {
+  color: $brown5;
+}
+:-moz-placeholder {
+  color: $brown5;
+}

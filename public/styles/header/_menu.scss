@@ -1,0 +1,247 @@
+@keyframes menuBackDropBG {
+  0% {
+    background-color: transparent;
+  }
+}
+
+@keyframes menuShow {
+  0% {
+    transform: translate3D(-100%, 0, 0);
+  }
+}
+
+// Main styles
+.ui.header.menu {
+  font-family: $font1;
+  background-color: $header_bg;
+  height: $header_menu_height;
+  position: relative;
+
+  label {
+    display: block;
+    width: 4.5rem;
+    height: 3rem;
+    border-radius: .3rem;
+    padding: .8rem;
+    position: absolute;
+    top: 3rem;
+    left: 1rem;
+    cursor: pointer;
+
+    @media screen and (min-width: $desktop_size) {
+      display: none;
+    }
+
+    span {
+      display: block;
+      height: .2rem;
+      background-color: $gold1;
+
+      &:not(:last-child) {
+        margin-bottom: .5rem;
+      }
+    }
+  }
+
+  input[type="checkbox"] {
+    display: none;
+  }
+
+  .menu-wrap {
+    height: 100%;
+
+    @media screen and (max-width: $desktop_size) {
+      display: none;
+      transform: translate3D(-100%, 0, 0);
+      transition: transform 300ms ease-in;
+
+      &:before {
+        background-color: transparent;
+        transition: background-color 300ms ease-in;
+      }
+    }
+  }
+
+  .menu {
+    display: flex;
+    height: 100%;
+
+    @media screen and (max-width: $desktop_size) {
+      overflow-y: scroll;
+    }
+
+    @media screen and (min-width: $desktop_size) {
+      flex-direction: row;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    > li {
+
+      @media screen and (max-width: $desktop_size) {
+
+        > a {
+          font-size: 2rem;
+          height: 6rem;
+          line-height: 6rem;
+          margin-left: 1.8rem;
+          margin-right: 1.8rem;
+        }
+
+        ul {
+          display: block;
+          padding-left: 2rem;
+
+          a {
+            font-size: 1.5rem;
+            min-height: 3rem;
+            line-height: 3rem;
+          }
+        }
+      }
+
+      @media screen and (min-width: $desktop_size) {
+        height: 100%;
+
+        &:last-child {
+
+          a {
+            padding-right: 0;
+          }
+        }
+
+        > a {
+          transition: border-color 300ms ease-in;
+          will-change: border-color;
+          border-bottom: .8rem solid transparent;
+        }
+      }
+
+      &.active,
+      &:hover {
+
+        a {
+          border-color: $green1;
+        }
+      }
+    }
+  }
+
+  ul ul {
+    display: none;
+  }
+
+  li {
+
+    &:hover {
+
+      > a {
+        color: $green1;
+      }
+    }
+  }
+
+  a {
+    font-size: 1.6rem;
+    display: block;
+    height: 100%;
+    color: white;
+    text-decoration: none;
+	padding-left: 1.15rem;
+	padding-right: 1.15rem;
+    transition: color 300ms ease-in;
+    will-change: color;
+
+    @media screen and (min-width: $desktop_size) {
+      line-height: $header_menu_height;
+    }
+  }
+}
+
+// Toggle mobile menu
+.ui.header.menu {
+
+  input[type="checkbox"]:checked ~ .menu-wrap {
+
+    @media screen and (max-width: $desktop_size) {
+      animation: menuShow 350ms both;
+      transform: translate3D(0%, 0, 0);
+      display: block;
+      position: fixed;
+      width: 70vw;
+      height: calc(100vh - #{$header_menu_height});
+      top: $header_menu_height;
+      left: 0;
+      bottom: 0;
+      z-index: 9000;
+      background-color: $brown3;
+
+      &:before {
+        display: block;
+        content: '';
+        background-color: rgba($brown3, .4);
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        z-index: -1;
+        animation-name: menuBackDropBG;
+        animation-duration: 300ms;
+        animation-fill-mode: both;
+        animation-delay: 230ms;
+      }
+
+      .menu {
+        display: block;
+      }
+    }
+  }
+}
+
+// Dropdown menu
+.ui.header.menu {
+  
+  .menu {
+	
+	@media screen and (min-width: $desktop_size) {
+
+	  > li {
+		position: relative;
+
+		&:hover {
+
+		  ul {
+			display: block;
+			top: calc(100% - 1px);
+			right: 0;
+		  }
+		}
+		
+		a:first-child:nth-last-child(2) {
+		  // For links with submenu
+		}
+	  }
+
+	  ul {
+		min-width: 100%;
+		background-color: rgba($brown4, .85);
+		position: absolute;
+		padding: 1em 0;
+		
+		li {
+		  
+		  &.active {
+			
+			a {
+			  color: $green1;
+			}
+		  }
+		}
+		
+		a {
+		  white-space: nowrap;
+		  line-height: 2;
+		}
+	  }
+	}
+  }
+}

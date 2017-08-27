@@ -3,6 +3,7 @@ var _ = require('underscore');
 var hbs = require('handlebars');
 var keystone = require('keystone');
 var cloudinary = require('cloudinary');
+var fs = require('fs');
 
 // Collection of templates to interpolate
 var linkTemplate = _.template('<a href="<%= url %>"><%= text %></a>');
@@ -12,6 +13,30 @@ var cssLinkTemplate = _.template('<link href="<%= href %>" rel="stylesheet">');
 module.exports = function () {
 
 	var _helpers = {};
+
+	/**
+	 * Read inline css and JS
+	 * ======================
+	 */
+	
+	_helpers.inlineCSS = function () {
+		var content = fs.readFileSync(__dirname + '/../../../public/styles/style.css', 'utf8');
+
+		content = content.replace(/\/\*(?:(?!\*\/)[\s\S])*\*\/|[\r\n\t]+/g, '');
+		// now all comments, newlines and tabs have been removed
+		content = content.replace(/ {2,}/g, ' ');
+		// now there are no more than single adjacent spaces left
+		// now unnecessary: content = content.replace( /(\s)+\./g, ' .' );
+		content = content.replace(/ ([{:}]) /g, '$1');
+		content = content.replace(/([;,]) /g, '$1');
+		content = content.replace(/ !/g, '!');
+
+		return new hbs.SafeString(content);
+	};
+	
+	_helpers.inlineJS = function () {
+		return new hbs.SafeString(fs.readFileSync(__dirname + '/../../../public/javascript/script.js', 'utf8'));
+	};
 
 	/**
 	 * Generic HBS Helpers

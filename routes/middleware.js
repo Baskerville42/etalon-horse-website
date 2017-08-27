@@ -67,3 +67,15 @@ exports.requireUser = function (req, res, next) {
 		next();
 	}
 };
+
+exports.bodyCSSClass = function (req, res, next) {
+	let locals = res.locals;
+	
+	Menu.model
+		.findOne()
+		.where('path', req.params.path || 'home')
+		.exec(function (err, page) {
+			locals.bodyClass = page.cssClass;
+			next();
+		});
+};

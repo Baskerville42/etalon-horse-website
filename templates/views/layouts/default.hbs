@@ -3,101 +3,89 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Etalon Horse Club {{#if pageTitle}}| {{pageTitle}}{{/if}}</title>
-	<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-	<link href="/styles/site.css" rel="stylesheet">
-
 	{{#if meta.keywords}}
 		<meta name="keywords" content="{{meta.keywords}}">
 	{{/if}}
-
 	{{#if meta.description}}
 		<meta name="description" content="{{meta.description}}">
 	{{/if}}
-
-	{{!-- This file provides the default styling for the KeystoneJS Content Editor
-        - only renders when user is logged in and admin--}}
+	
+	<title>Etalon Horse Club {{#if pageTitle}}| {{pageTitle}}{{/if}}</title>
+	
 	{{{isAdminEditorCSS user}}}
 
-	{{!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
-    //- Safely remove this block if you are not targeting IE8 --}}
-	<!--[if lt IE 9]>
-	<script src="//cdn.jsdelivr.net/html5shiv/3.7.3/html5shiv.js"></script>
-	<script src="//cdn.jsdelivr.net/respond/1.4.2/respond.min.js"></script>
-	<![endif]-->
-
+	<style type="text/css">{{inlineCSS}}</style>
+	
 	<script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');ga('create', 'UA-69831730-1', 'auto');ga('send', 'pageview');</script>
 </head>
-<body>
-<div id="header">
-	<div class="container">
-		<div role="navigation" class="navbar navbar-default">
-			<div class="container-fluid">
-				<div class="collapse navbar-collapse">
+<body {{#if bodyClass}}class="{{bodyClass}}"{{/if}}>
+{{#if messages}}
+	<div id="flash-messages" class="container">
+		{{#if messages.info}}
+			<div class="alert alert-info">
+				{{{flashMessages messages.info}}}
+			</div>
+		{{/if}}
+		{{#if messages.success}}
+			<div class="alert alert-success">
+				{{{flashMessages messages.success}}}
+			</div>
+		{{/if}}
+		{{#if messages.warning}}
+			<div class="alert alert-warning">
+				{{{flashMessages messages.warning}}}
+			</div>
+		{{/if}}
+		{{#if messages.error}}
+			<div class="alert alert-danger">
+				{{{flashMessages messages.error}}}
+			</div>
+		{{/if}}
+	</div>
+{{/if}}
+<div class="ui layout">
+	<header>
+		<div class="ui contacts header">
+			<div class="ui container">
+				<ui class="ui layout-contacts">
+					<li><i class="fa fa-envelope" aria-hidden="true"></i> <a href="mailto:info@etalon-horse.club">info@etalon-horse.club</a></li>
+					<li><i class="fa fa-phone" aria-hidden="true"></i> <a href="tel:+380973420373">+380973420373</a></li>
+					<li><i class="fa fa-phone" aria-hidden="true"></i> <a href="tel:+380665888065">+380665888065</a></li>
+				</ui>
+			</div>
+		</div>
+		{{> navigation links=navigationLinks section=section selectedCategory=selectedCategory}}
+	</header>
+	
+	<main>
+		{{{body}}}
+	</main>
+	
+	<footer>
+		<div class="ui footer content-wrap">
+			<div class="ui container">
+				<ui class="ui layout-contacts">
+					<li><i class="fa fa-phone" aria-hidden="true"></i> <a href="tel:+380973420373">+380973420373</a></li>
+					<li><i class="fa fa-phone" aria-hidden="true"></i> <a href="tel:+380665888065">+380665888065</a></li>
+				</ui>
+				<div class="ui soc-links">
+					<a target="_blank" rel="nofollow" href="{{siteConfig.vk}}"><i class="fa fa-vk" aria-hidden="true"></i></a>
+					<a target="_blank" rel="nofollow" href="{{siteConfig.fb}}"><i class="fa fa-facebook-f" aria-hidden="true"></i></a>
+				</div>
+			</div>
+		</div>
+		<div class="ui footer copyright">
+			<div class="ui container">
+				<p>&copy; Конный клуб «Эталон», 2015 &ndash; {{currentYear}}</p>
+			</div>
+		</div>
+	</footer>
+</div>
 
-					{{> navigation links=navigationLinks section=section selectedCategory=selectedCategory}}
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<div id="body">
-	<!--
-        Flash messages allow you to display once-off status messages to users, e.g. form
-        validation errors, success messages, etc
-    -->
-	{{#if messages}}
-		<div id="flash-messages" class="container">
-			{{#if messages.info}}
-				<div class="alert alert-info">
-					{{{flashMessages messages.info}}}
-				</div>
-			{{/if}}
-			{{#if messages.success}}
-				<div class="alert alert-success">
-					{{{flashMessages messages.success}}}
-				</div>
-			{{/if}}
-			{{#if messages.warning}}
-				<div class="alert alert-warning">
-					{{{flashMessages messages.warning}}}
-				</div>
-			{{/if}}
-			{{#if messages.error}}
-				<div class="alert alert-danger">
-					{{{flashMessages messages.error}}}
-				</div>
-			{{/if}}
-		</div>
-	{{/if}}
-	<!-- The content block should contain the body of your template's content-->
-	{{{body}}}
-</div>
-<div class="container">
-	<div id="footer">
-		<div class="row">
-			<div class="col-xs-6">
-				<p>Конный клуб «Эталон» &copy; {{currentYear}}</p>
-			</div>
-			<div class="col-xs-6 text-right">
-				<a target="_blank" rel="nofollow" href="{{siteConfig.vk}}">Вконтакте</a>
-				<a target="_blank" rel="nofollow" href="{{siteConfig.fb}}">Facebook</a>
-			</div>
-		</div>
-	</div>
-</div>
-{{!--
-    //- jQuery 1.11.3 is included by default, and required by both Bootstrap
-    //- and the KeystoneJS Content Editor. If you are not targeting IE8,
-    //- you can upgrade to 2.1.4 (also bundled) for better performance.
---}}
-<script src="/js/jquery/jquery-1.11.3.min.js"></script>
-{{!--
-    //- Customise which Bootstrap javascript files are served by including
-    //- them specifically here, instead of bootstrap-3.3.5.min.js
---}}
-<script src="/js/bootstrap/bootstrap-3.3.5.min.js"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAgfZyWqUa1igG4laoy_Lr_lamqUAfgL08&callback=initMap"></script>
+<script src="/javascript/vendors/swiper/swiper.min.js"></script>
+<script>{{inlineJS}}</script>
+
 {{{isAdminEditorJS user}}}
 </body>
 </html>

@@ -1,0 +1,41 @@
+<div class="ui container">
+  <ol class="ui breadcrumbs">
+    <li><a href="/">Главная</a></li>
+    <li>{{category.categoryPage.title}}</li>
+  </ol>
+
+  <h1>{{category.categoryPage.title}}</h1>
+
+	<div class="ui description-list">
+		
+		{{#each category.categoryPage.pages}}
+			<div class="item">
+				<a class="image" href="/{{../category.path}}/{{this.path}}">
+					{{#if this.pageImage.exists}}
+						<img src="{{cloudinaryUrl this.pageImage width=295 height=279 crop='fill'}}" alt="{{this.title}}">
+					{{else}}
+						<img src="/images/service-category-example.png" alt="{{this.title}}">
+					{{/if}}
+				</a>
+				<div class="content">
+					<h4>
+						<a class="image" href="/{{../category.path}}/{{this.path}}">
+							{{#if this.title_alias}}
+								{{this.title_alias}}
+							{{else}}
+								{{this.title}}
+							{{/if}}
+						</a>
+					</h4>
+					
+					<div class="text">
+						{{{this.introtext}}}
+					</div>
+				</div>
+			</div>
+		{{/each}}
+		
+	</div>
+
+	{{{category.categoryPage.description}}}
+</div>

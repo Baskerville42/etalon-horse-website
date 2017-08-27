@@ -49,6 +49,7 @@ Page.add(
 
 	{heading: 'Content'},
 	{
+		pageImage: { type: Types.CloudinaryImage, folder: 'etalon-horse-website', autoCleanup: true, select : true, width: 222 },
 		introtext: {
 			type: Types.Html,
 			wysiwyg: true
@@ -66,6 +67,7 @@ Page.add(
 			ref: 'Category',
 			dependsOn: {type: 'Category'}
 		},
+		slider: { type: Types.CloudinaryImages, folder: 'etalon-horse-website' }
 	},
 
 	{heading: 'SEO Settings'},

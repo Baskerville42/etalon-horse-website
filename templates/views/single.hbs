@@ -1,5 +1,5 @@
-<div class="container">
-  <ol class="breadcrumb">
+<div class="ui container">
+  <ol class="ui breadcrumbs">
     <li><a href="/">Главная</a></li>
 		{{#ifeq page.type 'Category'}}
       <li><a href="/{{page.category.path}}">{{page.category.title}}</a></li>
@@ -15,4 +15,10 @@
 	
 	{{{page.fulltext}}}
 	{{{page.singlePage.fulltext}}}
+	
+	{{#if page.slider.length}}
+		{{#each page.slider as |image|}}
+			<img src="{{cloudinaryUrl image}}" alt="">
+		{{/each}}
+	{{/if}}
 </div>
