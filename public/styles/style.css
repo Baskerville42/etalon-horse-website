@@ -3591,7 +3591,8 @@ a {
   cursor: pointer;
   text-decoration: none;
   text-align: center;
-  transition: background-color 300ms linear; }
+  transition: background-color 300ms linear;
+  outline: none; }
 
 .ui.btn-default {
   font-size: 1.6rem;
@@ -3633,7 +3634,8 @@ a {
     color: #3d3a37;
     font-size: 1.6em;
     padding: .75em 1.35em;
-    margin: 0 .6em 1.2em; }
+    margin: 0 .6em 1.2em;
+    outline: none; }
 
 ::-webkit-input-placeholder {
   color: #3d3a37; }
@@ -3989,6 +3991,9 @@ a {
   padding-bottom: 0; }
   .home-page .ui.layout main .ui.container {
     text-align: center; }
+
+.page-slider {
+  margin-top: 5rem; }
 
 .services-page .ui.description-list {
   margin: 3.8rem 0; }
