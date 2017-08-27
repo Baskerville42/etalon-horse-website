@@ -58,3 +58,15 @@ var servicesSlider = new Swiper('.services-slider.swiper-container', {
 	setWrapperSize: true,
 	width: 960
 });
+
+// Init page slider
+var pageSlider = new Swiper('.page-slider.swiper-container', {
+	speed: 400,
+	spaceBetween: 0,
+	nextButton: '.page-slider .slider-button-next',
+	prevButton: '.page-slider .slider-button-prev',
+	loop: true,
+	slidesPerView: 1,
+	setWrapperSize: true,
+	effect: 'fade'
+});

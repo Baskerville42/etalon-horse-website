@@ -17,8 +17,19 @@
 	{{{page.singlePage.fulltext}}}
 	
 	{{#if page.slider.length}}
-		{{#each page.slider as |image|}}
-			<img src="{{cloudinaryUrl image}}" alt="">
-		{{/each}}
+		<div class="page-slider swiper-container">
+			<div class="swiper-wrapper">
+
+				{{#each page.slider as |image|}}
+					<div class="swiper-slide">
+						<img src="{{cloudinaryUrl image width=1024 height=576 crop='fill'}}" alt="{{service.title}}">
+					</div>
+				{{/each}}
+
+			</div>
+
+			<div class="slider-button-prev"></div>
+			<div class="slider-button-next"></div>
+		</div>
 	{{/if}}
 </div>
