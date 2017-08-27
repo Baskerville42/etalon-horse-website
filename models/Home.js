@@ -9,6 +9,10 @@ let Home = new keystone.List('Home', {
 	singular: 'Home Page',
 	nocreate: true,
 	nodelete: true,
+	track: {
+		updatedAt: true,
+		updatedBy: true
+	},
 	map: {
 		name: 'title'
 	},
