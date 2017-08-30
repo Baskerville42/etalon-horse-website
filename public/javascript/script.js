@@ -34,7 +34,10 @@ function initMap() {
 		map: map,
 		icon: markerImage
 	});
-	map.panBy( window.innerWidth / 4, 25);
+	
+	if(window.innerWidth >= 1025) {
+		map.panBy( window.innerWidth / 4, 25);
+	}
 }
 
 // Init Main Slider

@@ -2,23 +2,41 @@
   font-size: 1rem;
   font-family: $font1;
   position: relative;
-  height: 57.7em;
   width: 100vw;
   overflow: hidden;
+
+  @media screen and (min-width: $desktop_size) {
+	height: 57.7rem;
+  }
   
   #map {
-	height: 100%;
+
+	@media screen and (max-width: $desktop_size) {
+	  height: 57.7rem;
+	}
+
+	@media screen and (min-width: $desktop_size) {
+	  height: 100%;
+	}
   }
   
   .legend {
 	border-top: 1.6em solid $green4;
 	background-color: white;
-	width: $container_desktop_width / 2;
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	right: calc(50vw - #{$container_desktop_width} / 2);
-	box-shadow: 0 6px 5px 0 rgba(black, .47);
+
+	@media screen and (max-width: $desktop_size) {
+	  padding-top: 3rem;
+	  padding-bottom: 3rem;
+	}
+
+	@media screen and (min-width: $desktop_size) {
+	  position: absolute;
+	  top: 0;
+	  bottom: 0;
+	  right: calc(50vw - #{$container_desktop_width} / 2);
+	  width: $container_desktop_width / 2;
+	  box-shadow: 0 6px 5px 0 rgba(black, .47);
+	}
   }
   
   ul {
@@ -56,7 +74,14 @@
   }
   
   p {
-	padding: 0 4.4em;
+
+	@media screen and (max-width: $desktop_size) {
+	  padding: 0 1.5rem;
+	}
+
+	@media screen and (min-width: $desktop_size) {
+	  padding: 0 4.4em;
+	}
 	
 	&:not(:last-child) {
 	  margin: 0 0 2.06rem;
