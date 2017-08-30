@@ -54,8 +54,10 @@
 	display: flex;
 	flex-direction: row;
 	align-items: center;
+	cursor: pointer;
 	
-	&:hover {
+	&:hover,
+	&.active {
 	  background-color: #e8e8e8;
 	}
   }

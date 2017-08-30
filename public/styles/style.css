@@ -3746,8 +3746,9 @@ a {
     height: 4.778em;
     display: flex;
     flex-direction: row;
-    align-items: center; }
-    .ui.map li:hover {
+    align-items: center;
+    cursor: pointer; }
+    .ui.map li:hover, .ui.map li.active {
       background-color: #e8e8e8; }
   .ui.map .fa {
     color: #a5d057;

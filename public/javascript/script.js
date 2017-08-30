@@ -7,10 +7,50 @@ window.onload = function () {
 };
 
 // Init Map
+var directionsDisplay;
+var directionsService;
+var dirrectionOptions = {
+	'812bus': {
+		origin: 'Ipodrom Station, Kyiv, 02000',
+		destination: 'Chkalova St, 40, Nove, Kyivs\'ka oblast, 08150',
+		provideRouteAlternatives: false,
+		travelMode: 'TRANSIT',
+		transitOptions: {
+			modes: ['BUS'],
+		}
+	},
+	'825bus': {
+		origin: 'Teremky Station, Kyiv, 02000',
+		destination: 'Chkalova St, 40, Nove, Kyivs\'ka oblast, 08150',
+		provideRouteAlternatives: false,
+		travelMode: 'TRANSIT',
+		transitOptions: {
+			modes: ['BUS'],
+			routingPreference: 'FEWER_TRANSFERS'
+		}
+	},
+	'driving': {
+		origin: 'Teremky Station, Kyiv, 02000',
+		destination: 'Chkalova St, 40, Nove, Kyivs\'ka oblast, 08150',
+		provideRouteAlternatives: true,
+		travelMode: 'DRIVING',
+		drivingOptions: {
+			departureTime: new Date(/* now, or future date */),
+			trafficModel: 'pessimistic'
+		},
+		//unitSystem: google.maps.UnitSystem.METRIC
+	},
+};
+var map;
+
 function initMap() {
+	directionsService = new google.maps.DirectionsService();
+	directionsDisplay = new google.maps.DirectionsRenderer({ suppressMarkers: true });
+	
 	var club = {lat: 50.321178, lng: 30.306885};
 	var container = document.getElementById('map');
-	var map = new google.maps.Map(container, {
+	
+	map = new google.maps.Map(container, {
 		zoom: parseInt(container.getAttribute('data-zoom')) || 13,
 		center: club,
 		disableDefaultUI: true,
@@ -38,6 +78,21 @@ function initMap() {
 	if(window.innerWidth >= 1025) {
 		map.panBy( window.innerWidth / 4, 25);
 	}
+
+	directionsDisplay.setMap(map);
+	
+	calcRoute();
+}
+
+function calcRoute(route) {
+	directionsService.route(dirrectionOptions[route || '812bus'], function(result, status) {
+		if (status == 'OK') {
+			directionsDisplay.setDirections(result);
+			setTimeout(function () {
+				map.panBy( window.innerWidth / 4, 25);
+			}, 300)
+		}
+	});
 }
 
 // Init Main Slider
