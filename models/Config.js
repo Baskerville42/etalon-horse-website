@@ -17,6 +17,7 @@ Config.add(
 	{
 		vk: { type: Types.Url },
 		fb: { type: Types.Url },
+		in: { type: Types.Url },
 	}
 );
 
