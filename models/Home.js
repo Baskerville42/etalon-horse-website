@@ -49,11 +49,13 @@ Home.add(
 			type: Types.Relationship,
 			ref: 'Page',
 			many: true,
+			filters: { published: 'Published' },
 		},
 		coaches: {
 			type: Types.Relationship,
 			ref: 'Page',
 			many: true,
+			filters: { published: 'Published' },
 		}
 	},
 

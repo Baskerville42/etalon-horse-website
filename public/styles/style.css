@@ -3320,12 +3320,37 @@ ul, ol {
   margin: 0;
   padding: 0;
   list-style: none; }
+  ul li, ol li {
+    font-family: "Open Sans",sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.9;
+    margin: .6rem 0 0; }
+
+dl {
+  font-family: "Open Sans",sans-serif;
+  font-size: 1rem;
+  margin-top: 2rem; }
+  dl dt {
+    font-size: 1.8em;
+    line-height: 1.7;
+    font-weight: bold;
+    margin-bottom: .6rem; }
+  dl dd {
+    font-size: 1.6em;
+    line-height: 1.9;
+    margin-bottom: 2rem; }
+    @media screen and (max-width: 1025px) {
+      dl dd {
+        margin-left: 0; } }
 
 h1, h2 {
   font-family: "Open Sans", sans-serif;
   font-size: 2.4rem;
   font-weight: 700;
-  margin: .67rem 0 0; }
+  margin: .67rem 0 4rem; }
+  @media screen and (max-width: 1025px) {
+    h1, h2 {
+      margin-top: 4rem; } }
 
 p {
   font-family: "Open Sans", sans-serif;
@@ -3368,7 +3393,8 @@ a {
 
 @media screen and (max-width: 1025px) {
   .ui.container {
-    width: 100%; } }
+    width: 100%;
+    padding: 0 3rem; } }
 
 @media screen and (min-width: 1025px) {
   .ui.container {
@@ -3566,10 +3592,14 @@ a {
   list-style: none;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   margin: 2.5em 0 3.5em; }
   .ui.breadcrumbs li {
     font-size: 1.4em;
     color: #3d3a37; }
+    @media screen and (max-width: 1025px) {
+      .ui.breadcrumbs li {
+        margin-bottom: 1rem; } }
     .ui.breadcrumbs li:not(:last-child):after {
       content: '/';
       margin: 0 .3em; }
@@ -3606,6 +3636,9 @@ a {
   background-color: #e6e6e6;
   padding-top: 3em;
   padding-bottom: 7.7em; }
+  @media screen and (max-width: 1025px) {
+    .ui.contact-form {
+      padding-bottom: 3.4em; } }
   .ui.contact-form .ui.container {
     padding: 0 6em; }
   .ui.contact-form h3 {
@@ -3623,7 +3656,11 @@ a {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    align-items: flex-start;
     margin-bottom: 1.6em; }
+    @media screen and (max-width: 1025px) {
+      .ui.contact-form .form-content {
+        flex-direction: column; } }
   .ui.contact-form textarea {
     resize: none; }
   .ui.contact-form .form-control {
@@ -3636,6 +3673,10 @@ a {
     padding: .75em 1.35em;
     margin: 0 .6em 1.2em;
     outline: none; }
+    @media screen and (max-width: 1025px) {
+      .ui.contact-form .form-control {
+        width: 100%;
+        flex: 1; } }
 
 ::-webkit-input-placeholder {
   color: #3d3a37; }
@@ -3646,14 +3687,35 @@ a {
 .ui.description-list {
   font-size: 1rem; }
   .ui.description-list .item {
-    display: flex;
+    display: flex; }
+
+@media screen and (max-width: 1025px) and (orientation: landscape) {
+  .ui.description-list .item {
     flex-direction: row;
-    flex-wrap: nowrap; }
+    flex-wrap: nowrap; } }
+
+@media screen and (max-width: 1025px) and (orientation: portrait) {
+  .ui.description-list .item {
+    flex-direction: column; } }
+    @media screen and (min-width: 1025px) {
+      .ui.description-list .item {
+        flex-direction: row;
+        flex-wrap: nowrap; } }
     .ui.description-list .item:not(:last-child) {
       margin-bottom: 5.7rem; }
+    @media screen and (max-width: 1025px) {
+      .ui.description-list .item .image {
+        text-align: center; } }
+  @media screen and (max-width: 1025px) and (orientation: landscape) {
     .ui.description-list .item .image {
-      width: 29.5rem;
-      margin-right: 3.4rem; }
+      margin-right: 3.4rem; } }
+  @media screen and (max-width: 1025px) and (orientation: portrait) {
+    .ui.description-list .item .image {
+      margin-bottom: 3.4rem; } }
+    @media screen and (min-width: 1025px) {
+      .ui.description-list .item .image {
+        width: 29.5rem;
+        margin-right: 3.4rem; } }
     .ui.description-list .item h4 {
       margin: -.2rem 0 0;
       font-size: 1.98em;
@@ -3703,20 +3765,32 @@ a {
   font-size: 1rem;
   font-family: "Open Sans", sans-serif;
   position: relative;
-  height: 57.7em;
   width: 100vw;
   overflow: hidden; }
-  .ui.map #map {
-    height: 100%; }
+  @media screen and (min-width: 1025px) {
+    .ui.map {
+      height: 57.7rem; } }
+  @media screen and (max-width: 1025px) {
+    .ui.map #map {
+      height: 57.7rem; } }
+  @media screen and (min-width: 1025px) {
+    .ui.map #map {
+      height: 100%; } }
   .ui.map .legend {
     border-top: 1.6em solid #a2b447;
-    background-color: white;
-    width: 48rem;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: calc(50vw - 96rem / 2);
-    box-shadow: 0 6px 5px 0 rgba(0, 0, 0, 0.47); }
+    background-color: white; }
+    @media screen and (max-width: 1025px) {
+      .ui.map .legend {
+        padding-top: 3rem;
+        padding-bottom: 3rem; } }
+    @media screen and (min-width: 1025px) {
+      .ui.map .legend {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: calc(50vw - 96rem / 2);
+        width: 48rem;
+        box-shadow: 0 6px 5px 0 rgba(0, 0, 0, 0.47); } }
   .ui.map ul {
     width: 100%;
     height: 100%;
@@ -3729,22 +3803,27 @@ a {
     height: 4.778em;
     display: flex;
     flex-direction: row;
-    align-items: center; }
-    .ui.map li:hover {
+    align-items: center;
+    cursor: pointer; }
+    .ui.map li:hover, .ui.map li.active {
       background-color: #e8e8e8; }
   .ui.map .fa {
     color: #a5d057;
     display: inline-block;
-    flex: 0 1 90px;
+    flex: 0 0 70px;
     height: 100%;
     font-size: 35px;
     text-align: center; }
     .ui.map .fa:before {
       line-height: 2.5; }
-  .ui.map p {
-    padding: 0 4.4em; }
-    .ui.map p:not(:last-child) {
-      margin: 0 0 2.06rem; }
+  @media screen and (max-width: 1025px) {
+    .ui.map p {
+      padding: 0 1.5rem; } }
+  @media screen and (min-width: 1025px) {
+    .ui.map p {
+      padding: 0 4.4em; } }
+  .ui.map p:not(:last-child) {
+    margin: 0 0 2.06rem; }
 
 .ui.map .text.legend {
   border-color: #da9d32;
@@ -3752,10 +3831,14 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: center; }
+  .ui.map .text.legend a {
+    color: black; }
 
 .ui.soc-links {
   font-size: 1rem;
-  display: flex; }
+  display: flex;
+  margin-top: 2rem;
+  margin-bottom: 2rem; }
   .ui.soc-links a {
     background-color: #da9d32;
     text-decoration: none;
@@ -3782,16 +3865,34 @@ a {
   font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
   margin: 5.8em -2.3em 0; }
+  @media screen and (max-width: 1025px) {
+    .ui.thumbnails {
+      justify-content: center;
+      align-items: center; } }
+  @media screen and (max-width: 1025px) and (orientation: landscape) {
+    .ui.thumbnails {
+      flex-direction: row;
+      flex-wrap: wrap; } }
+  @media screen and (max-width: 1025px) and (orientation: portrait) {
+    .ui.thumbnails {
+      flex-direction: column; } }
+  @media screen and (min-width: 1025px) {
+    .ui.thumbnails {
+      flex-direction: row;
+      flex-wrap: wrap; } }
   .ui.thumbnails .item {
-    flex: 0 0 25%;
     color: white;
     padding: 0 calc(2.3em / 2);
     margin-bottom: 2.8em;
     height: 31.7em;
     text-decoration: none; }
+    @media screen and (max-width: 1025px) {
+      .ui.thumbnails .item {
+        width: 60vw; } }
+    @media screen and (min-width: 1025px) {
+      .ui.thumbnails .item {
+        flex: 0 0 25%; } }
     .ui.thumbnails .item:hover figure {
       background-color: #a6b750; }
   .ui.thumbnails figure {
@@ -3914,7 +4015,10 @@ a {
     font-weight: 400;
     margin: 0;
     padding: 0 3em;
-    line-height: 1.35; }
+    line-height: 1.35;
+    min-height: 15rem;
+    display: inline-flex;
+    align-items: center; }
   .services-slider p {
     font-size: 1.6em;
     font-weight: 100;
@@ -3923,6 +4027,9 @@ a {
     padding: 0 2em;
     line-height: 1.55;
     flex: 1; }
+    @media screen and (max-width: 1025px) {
+      .services-slider p {
+        display: none; } }
   .services-slider .ui.btn {
     border: 0.6rem solid #f4f4f3;
     min-width: 20.2rem;
@@ -3937,60 +4044,100 @@ a {
 
 .home-page h2 {
   text-transform: uppercase;
-  display: block;
-  min-width: 38.5rem;
-  width: 38.5rem;
-  max-width: 50%;
   border-bottom: 1px solid #403c38;
   text-align: center;
   padding-bottom: 1.15em;
   margin: .67rem auto 0; }
+  @media screen and (min-width: 1025px) {
+    .home-page h2 {
+      display: block;
+      min-width: 38.5rem;
+      width: 38.5rem;
+      max-width: 50%; } }
 
 .home-page .about {
-  margin-bottom: 5.15em;
-  text-align: center; }
+  text-align: center;
+  margin-bottom: 5.15em; }
+  @media screen and (max-width: 1025px) {
+    .home-page .about {
+      margin-top: 3rem; } }
   .home-page .about .ui.btn {
     margin-top: 4rem; }
 
 .home-page .services {
   background-color: #f4f4f3;
-  padding-top: 9.4em;
-  padding-bottom: 11.8em;
   position: relative; }
+  @media screen and (max-width: 1025px) {
+    .home-page .services {
+      padding-top: 3rem;
+      padding-bottom: 5em; } }
+  @media screen and (min-width: 1025px) {
+    .home-page .services {
+      padding-top: 9.4em;
+      padding-bottom: 11.8em; } }
+  @media screen and (max-width: 1025px) {
+    .home-page .services h2 {
+      margin: .67rem 3rem 0; } }
 
-.home-page .coaches {
-  margin-top: 8em;
-  margin-bottom: 5.4em; }
-  .home-page .coaches .ui.btn {
-    margin-top: 3.1em !important; }
+@media screen and (max-width: 1025px) {
+  .home-page .coaches {
+    margin-top: 3rem;
+    margin-bottom: 5rem; } }
+
+@media screen and (min-width: 1025px) {
+  .home-page .coaches {
+    margin-top: 8em;
+    margin-bottom: 5.4em; } }
+
+.home-page .coaches .ui.btn {
+  margin-top: 3.1em !important; }
 
 .home-page .coaches-list {
   font-size: 1rem;
   font-family: "Open Sans", sans-serif;
   display: flex;
-  flex-direction: row;
   margin-top: 5.7em; }
-  .home-page .coaches-list .item:not(:last-child) {
-    margin-right: 3.9em; }
-  .home-page .coaches-list .item figure {
-    position: relative;
-    margin: 0; }
-  .home-page .coaches-list .item figcaption {
-    font-size: 1.9em;
-    font-style: italic;
-    width: 100%;
-    position: absolute;
-    bottom: .05em;
-    height: 3.05em;
-    color: white;
-    background-color: rgba(54, 52, 49, 0.72);
-    display: flex;
-    align-items: center;
-    justify-content: center; }
+  @media screen and (max-width: 1025px) {
+    .home-page .coaches-list {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center; } }
+  @media screen and (min-width: 1025px) {
+    .home-page .coaches-list {
+      flex-direction: row; } }
+  .home-page .coaches-list .item {
+    flex: 0 1 auto; }
+    @media screen and (max-width: 1025px) {
+      .home-page .coaches-list .item:not(:last-child) {
+        margin-bottom: 3em; } }
+    @media screen and (min-width: 1025px) {
+      .home-page .coaches-list .item:not(:last-child) {
+        margin-right: 3.9em; } }
+    .home-page .coaches-list .item figure {
+      position: relative;
+      margin: 0; }
+    .home-page .coaches-list .item figcaption {
+      font-size: 1.9em;
+      font-style: italic;
+      width: 100%;
+      position: absolute;
+      bottom: .05em;
+      height: 4.05em;
+      color: white;
+      background-color: rgba(54, 52, 49, 0.72);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem .5rem; }
 
 .home-page .ui.map {
-  height: 42.7em;
   margin-top: 6em; }
+  @media screen and (min-width: 1025px) {
+    .home-page .ui.map {
+      height: 42.7em; } }
+  @media screen and (max-width: 1025px) {
+    .home-page .ui.map #map {
+      height: 42.7em; } }
 
 .home-page .ui.layout main {
   padding-bottom: 0; }
@@ -3999,6 +4146,8 @@ a {
 
 .page-slider {
   margin-top: 5rem; }
+  .page-slider img {
+    max-width: 100%; }
 
 .services-page .ui.description-list {
   margin: 3.8rem 0; }

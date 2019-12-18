@@ -7,10 +7,50 @@ window.onload = function () {
 };
 
 // Init Map
+var directionsDisplay;
+var directionsService;
+var dirrectionOptions = {
+	'812bus': {
+		origin: 'Ipodrom Station, Kyiv, 02000',
+		destination: 'Chkalova St, 40, Nove, Kyivs\'ka oblast, 08150',
+		provideRouteAlternatives: false,
+		travelMode: 'TRANSIT',
+		transitOptions: {
+			modes: ['BUS'],
+		}
+	},
+	'825bus': {
+		origin: 'Teremky Station, Kyiv, 02000',
+		destination: 'Chkalova St, 40, Nove, Kyivs\'ka oblast, 08150',
+		provideRouteAlternatives: false,
+		travelMode: 'TRANSIT',
+		transitOptions: {
+			modes: ['BUS'],
+			routingPreference: 'FEWER_TRANSFERS'
+		}
+	},
+	'driving': {
+		origin: 'Teremky Station, Kyiv, 02000',
+		destination: 'Chkalova St, 40, Nove, Kyivs\'ka oblast, 08150',
+		provideRouteAlternatives: true,
+		travelMode: 'DRIVING',
+		drivingOptions: {
+			departureTime: new Date(/* now, or future date */),
+			trafficModel: 'pessimistic'
+		},
+		//unitSystem: google.maps.UnitSystem.METRIC
+	},
+};
+var map;
+
 function initMap() {
+	directionsService = new google.maps.DirectionsService();
+	directionsDisplay = new google.maps.DirectionsRenderer({ suppressMarkers: true });
+	
 	var club = {lat: 50.321178, lng: 30.306885};
 	var container = document.getElementById('map');
-	var map = new google.maps.Map(container, {
+	
+	map = new google.maps.Map(container, {
 		zoom: parseInt(container.getAttribute('data-zoom')) || 13,
 		center: club,
 		disableDefaultUI: true,
@@ -34,11 +74,32 @@ function initMap() {
 		map: map,
 		icon: markerImage
 	});
-	map.panBy( window.innerWidth / 4, 25);
+	
+	if(window.innerWidth >= 1025) {
+		map.panBy( window.innerWidth / 4, 25);
+	}
+
+	directionsDisplay.setMap(map);
+	
+	calcRoute();
+}
+
+function calcRoute(route) {
+	directionsService.route(dirrectionOptions[route || '812bus'], function(result, status) {
+		if (status === 'OK') {
+			directionsDisplay.setDirections(result);
+
+			if(window.innerWidth >= 1025) {
+				setTimeout(function () {
+					map.panBy( window.innerWidth / 4, 25);
+				}, 100)
+			}
+		}
+	});
 }
 
 // Init Main Slider
-var topSlider = new Swiper('.top-slider.swiper-container', {
+new Swiper('.top-slider.swiper-container', {
 	speed: 400,
 	spaceBetween: 0,
 	nextButton: '.top-slider .slider-button-next',
@@ -48,7 +109,7 @@ var topSlider = new Swiper('.top-slider.swiper-container', {
 });
 
 // Init services slider
-var servicesSlider = new Swiper('.services-slider.swiper-container', {
+new Swiper('.services-slider.swiper-container', {
 	speed: 400,
 	spaceBetween: 29,
 	nextButton: '.services-slider .slider-button-next',
@@ -60,7 +121,7 @@ var servicesSlider = new Swiper('.services-slider.swiper-container', {
 });
 
 // Init page slider
-var pageSlider = new Swiper('.page-slider.swiper-container', {
+new Swiper('.page-slider.swiper-container', {
 	speed: 400,
 	spaceBetween: 0,
 	nextButton: '.page-slider .slider-button-next',

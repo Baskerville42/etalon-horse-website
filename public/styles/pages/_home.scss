@@ -112,6 +112,9 @@
 	margin: 0;
 	padding: 0 3em;
 	line-height: 1.35;
+	min-height: 15rem;
+	display: inline-flex;
+	align-items: center;
   }
 
   p {
@@ -122,6 +125,10 @@
 	padding: 0 2em;
 	line-height: 1.55;
 	flex: 1;
+
+	@media screen and (max-width: $desktop_size) {
+	  display: none;
+	}
   }
 
   .ui.btn {
@@ -143,19 +150,26 @@
   
   h2 {
 	text-transform: uppercase;
-	display: block;
-	min-width: 38.5rem;
-	width: 38.5rem;
-	max-width: 50%;
 	border-bottom: 1px solid $brown6;
 	text-align: center;
 	padding-bottom: 1.15em;
 	margin: .67rem auto 0;
+	
+	@media screen and (min-width: $desktop_size) {
+	  display: block;
+	  min-width: 38.5rem;
+	  width: 38.5rem;
+	  max-width: 50%;
+	}
   }
   
   .about {
-	margin-bottom: 5.15em;
 	text-align: center;
+	margin-bottom: 5.15em;
+
+	@media screen and (max-width: $desktop_size) {
+	  margin-top: 3rem;
+	}
 
 	.ui.btn {
 	  margin-top: 4rem;
@@ -164,14 +178,37 @@
 
   .services {
 	background-color: $grey5;
-	padding-top: 9.4em;
-	padding-bottom: 11.8em;
 	position: relative;
+
+	@media screen and (max-width: $desktop_size) {
+	  padding-top: 3rem;
+	  padding-bottom: 5em;
+	}
+
+	@media screen and (min-width: $desktop_size) {
+	  padding-top: 9.4em;
+	  padding-bottom: 11.8em;
+	}
+	
+	h2 {
+
+	  @media screen and (max-width: $desktop_size) {
+		margin: .67rem 3rem 0;
+	  }
+	}
   }
   
   .coaches {
-	margin-top: 8em;
-	margin-bottom: 5.4em;
+
+	@media screen and (max-width: $desktop_size) {
+	  margin-top: 3rem;
+	  margin-bottom: 5rem;
+	}
+
+	@media screen and (min-width: $desktop_size) {
+	  margin-top: 8em;
+	  margin-bottom: 5.4em;
+	}
 	
 	.ui.btn {
 	  margin-top: 3.1em !important;
@@ -182,13 +219,33 @@
 	font-size: 1rem;
 	font-family: $font1;
 	display: flex;
-	flex-direction: row;
 	margin-top: 5.7em;
+
+	@media screen and (max-width: $desktop_size) {
+	  flex-direction: column; 
+	  align-items: center;
+	  justify-content: center;
+	}
+
+	@media screen and (min-width: $desktop_size) {
+	  flex-direction: row;
+	}
 	
 	.item {
-	  
-	  &:not(:last-child) {
-		margin-right: 3.9em;
+	  flex: 0 1 auto;
+
+	  @media screen and (max-width: $desktop_size) {
+
+		&:not(:last-child) {
+		  margin-bottom: 3em;
+		}
+	  }
+
+	  @media screen and (min-width: $desktop_size) {
+
+		&:not(:last-child) {
+		  margin-right: 3.9em;
+		}
 	  }
 
 	  figure {
@@ -202,19 +259,30 @@
 		width: 100%;
 		position: absolute;
 		bottom: .05em;
-		height: 3.05em;
+		height: 4.05em;
 		color: white;
 		background-color: rgba($brown4, .72);
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		padding: 1rem .5rem;
 	  }
 	}
   }
   
   .ui.map {
-	height: 42.7em;
 	margin-top: 6em;
+
+	@media screen and (min-width: $desktop_size) {
+	  height: 42.7em;
+	}
+
+	#map {
+
+	  @media screen and (max-width: $desktop_size) {
+		height: 42.7em;
+	  }
+	}
   }
   
   .ui.layout main {
