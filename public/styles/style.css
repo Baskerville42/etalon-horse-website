@@ -3320,12 +3320,37 @@ ul, ol {
   margin: 0;
   padding: 0;
   list-style: none; }
+  ul li, ol li {
+    font-family: "Open Sans",sans-serif;
+    font-size: 1.6rem;
+    line-height: 1.9;
+    margin: .6rem 0 0; }
+
+dl {
+  font-family: "Open Sans",sans-serif;
+  font-size: 1rem;
+  margin-top: 2rem; }
+  dl dt {
+    font-size: 1.8em;
+    line-height: 1.7;
+    font-weight: bold;
+    margin-bottom: .6rem; }
+  dl dd {
+    font-size: 1.6em;
+    line-height: 1.9;
+    margin-bottom: 2rem; }
+    @media screen and (max-width: 1025px) {
+      dl dd {
+        margin-left: 0; } }
 
 h1, h2 {
   font-family: "Open Sans", sans-serif;
   font-size: 2.4rem;
   font-weight: 700;
-  margin: .67rem 0 0; }
+  margin: .67rem 0 4rem; }
+  @media screen and (max-width: 1025px) {
+    h1, h2 {
+      margin-top: 4rem; } }
 
 p {
   font-family: "Open Sans", sans-serif;
@@ -3611,6 +3636,9 @@ a {
   background-color: #e6e6e6;
   padding-top: 3em;
   padding-bottom: 7.7em; }
+  @media screen and (max-width: 1025px) {
+    .ui.contact-form {
+      padding-bottom: 3.4em; } }
   .ui.contact-form .ui.container {
     padding: 0 6em; }
   .ui.contact-form h3 {
@@ -3628,7 +3656,11 @@ a {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    align-items: flex-start;
     margin-bottom: 1.6em; }
+    @media screen and (max-width: 1025px) {
+      .ui.contact-form .form-content {
+        flex-direction: column; } }
   .ui.contact-form textarea {
     resize: none; }
   .ui.contact-form .form-control {
@@ -3641,6 +3673,10 @@ a {
     padding: .75em 1.35em;
     margin: 0 .6em 1.2em;
     outline: none; }
+    @media screen and (max-width: 1025px) {
+      .ui.contact-form .form-control {
+        width: 100%;
+        flex: 1; } }
 
 ::-webkit-input-placeholder {
   color: #3d3a37; }
@@ -3651,14 +3687,35 @@ a {
 .ui.description-list {
   font-size: 1rem; }
   .ui.description-list .item {
-    display: flex;
+    display: flex; }
+
+@media screen and (max-width: 1025px) and (orientation: landscape) {
+  .ui.description-list .item {
     flex-direction: row;
-    flex-wrap: nowrap; }
+    flex-wrap: nowrap; } }
+
+@media screen and (max-width: 1025px) and (orientation: portrait) {
+  .ui.description-list .item {
+    flex-direction: column; } }
+    @media screen and (min-width: 1025px) {
+      .ui.description-list .item {
+        flex-direction: row;
+        flex-wrap: nowrap; } }
     .ui.description-list .item:not(:last-child) {
       margin-bottom: 5.7rem; }
+    @media screen and (max-width: 1025px) {
+      .ui.description-list .item .image {
+        text-align: center; } }
+  @media screen and (max-width: 1025px) and (orientation: landscape) {
     .ui.description-list .item .image {
-      width: 29.5rem;
-      margin-right: 3.4rem; }
+      margin-right: 3.4rem; } }
+  @media screen and (max-width: 1025px) and (orientation: portrait) {
+    .ui.description-list .item .image {
+      margin-bottom: 3.4rem; } }
+    @media screen and (min-width: 1025px) {
+      .ui.description-list .item .image {
+        width: 29.5rem;
+        margin-right: 3.4rem; } }
     .ui.description-list .item h4 {
       margin: -.2rem 0 0;
       font-size: 1.98em;
@@ -3753,7 +3810,7 @@ a {
   .ui.map .fa {
     color: #a5d057;
     display: inline-block;
-    flex: 0 1 90px;
+    flex: 0 0 70px;
     height: 100%;
     font-size: 35px;
     text-align: center; }
@@ -3774,10 +3831,14 @@ a {
   display: flex;
   flex-direction: column;
   justify-content: center; }
+  .ui.map .text.legend a {
+    color: black; }
 
 .ui.soc-links {
   font-size: 1rem;
-  display: flex; }
+  display: flex;
+  margin-top: 2rem;
+  margin-bottom: 2rem; }
   .ui.soc-links a {
     background-color: #da9d32;
     text-decoration: none;
@@ -3804,16 +3865,34 @@ a {
   font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
   margin: 5.8em -2.3em 0; }
+  @media screen and (max-width: 1025px) {
+    .ui.thumbnails {
+      justify-content: center;
+      align-items: center; } }
+  @media screen and (max-width: 1025px) and (orientation: landscape) {
+    .ui.thumbnails {
+      flex-direction: row;
+      flex-wrap: wrap; } }
+  @media screen and (max-width: 1025px) and (orientation: portrait) {
+    .ui.thumbnails {
+      flex-direction: column; } }
+  @media screen and (min-width: 1025px) {
+    .ui.thumbnails {
+      flex-direction: row;
+      flex-wrap: wrap; } }
   .ui.thumbnails .item {
-    flex: 0 0 25%;
     color: white;
     padding: 0 calc(2.3em / 2);
     margin-bottom: 2.8em;
     height: 31.7em;
     text-decoration: none; }
+    @media screen and (max-width: 1025px) {
+      .ui.thumbnails .item {
+        width: 60vw; } }
+    @media screen and (min-width: 1025px) {
+      .ui.thumbnails .item {
+        flex: 0 0 25%; } }
     .ui.thumbnails .item:hover figure {
       background-color: #a6b750; }
   .ui.thumbnails figure {
@@ -3936,7 +4015,10 @@ a {
     font-weight: 400;
     margin: 0;
     padding: 0 3em;
-    line-height: 1.35; }
+    line-height: 1.35;
+    min-height: 15rem;
+    display: inline-flex;
+    align-items: center; }
   .services-slider p {
     font-size: 1.6em;
     font-weight: 100;
@@ -4040,12 +4122,13 @@ a {
       width: 100%;
       position: absolute;
       bottom: .05em;
-      height: 3.05em;
+      height: 4.05em;
       color: white;
       background-color: rgba(54, 52, 49, 0.72);
       display: flex;
       align-items: center;
-      justify-content: center; }
+      justify-content: center;
+      padding: 1rem .5rem; }
 
 .home-page .ui.map {
   margin-top: 6em; }
@@ -4063,6 +4146,8 @@ a {
 
 .page-slider {
   margin-top: 5rem; }
+  .page-slider img {
+    max-width: 100%; }
 
 .services-page .ui.description-list {
   margin: 3.8rem 0; }

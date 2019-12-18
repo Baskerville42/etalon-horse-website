@@ -3,16 +3,46 @@
   
   .item {
 	display: flex;
-	flex-direction: row;
-	flex-wrap: nowrap;
+
+	@media screen and (max-width: $desktop_size) {
+
+	  @media screen and (orientation: landscape) {
+		flex-direction: row;
+		flex-wrap: nowrap;
+	  }
+
+	  @media screen and (orientation: portrait) {
+		flex-direction: column;
+	  }
+	}
+
+	@media screen and (min-width: $desktop_size) {
+	  flex-direction: row;
+	  flex-wrap: nowrap;
+	}
 	
 	&:not(:last-child) {
 	  margin-bottom: 5.7rem;
 	}
 	
 	.image {
-	  width: 29.5rem;
-	  margin-right: 3.4rem;
+
+	  @media screen and (max-width: $desktop_size) {
+		text-align: center;
+
+		@media screen and (orientation: landscape) {
+		  margin-right: 3.4rem;
+		}
+
+		@media screen and (orientation: portrait) {
+		  margin-bottom: 3.4rem;
+		}
+	  }
+
+	  @media screen and (min-width: $desktop_size) {
+		width: 29.5rem;
+		margin-right: 3.4rem;
+	  }
 	}
 	
 	.content {

@@ -86,17 +86,20 @@ function initMap() {
 
 function calcRoute(route) {
 	directionsService.route(dirrectionOptions[route || '812bus'], function(result, status) {
-		if (status == 'OK') {
+		if (status === 'OK') {
 			directionsDisplay.setDirections(result);
-			setTimeout(function () {
-				map.panBy( window.innerWidth / 4, 25);
-			}, 300)
+
+			if(window.innerWidth >= 1025) {
+				setTimeout(function () {
+					map.panBy( window.innerWidth / 4, 25);
+				}, 100)
+			}
 		}
 	});
 }
 
 // Init Main Slider
-var topSlider = new Swiper('.top-slider.swiper-container', {
+new Swiper('.top-slider.swiper-container', {
 	speed: 400,
 	spaceBetween: 0,
 	nextButton: '.top-slider .slider-button-next',
@@ -106,7 +109,7 @@ var topSlider = new Swiper('.top-slider.swiper-container', {
 });
 
 // Init services slider
-var servicesSlider = new Swiper('.services-slider.swiper-container', {
+new Swiper('.services-slider.swiper-container', {
 	speed: 400,
 	spaceBetween: 29,
 	nextButton: '.services-slider .slider-button-next',
@@ -118,7 +121,7 @@ var servicesSlider = new Swiper('.services-slider.swiper-container', {
 });
 
 // Init page slider
-var pageSlider = new Swiper('.page-slider.swiper-container', {
+new Swiper('.page-slider.swiper-container', {
 	speed: 400,
 	spaceBetween: 0,
 	nextButton: '.page-slider .slider-button-next',

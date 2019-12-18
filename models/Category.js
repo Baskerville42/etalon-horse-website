@@ -50,7 +50,7 @@ Category.add(
 			type: Types.Relationship, 
 			ref: 'Page', 
 			many: true, 
-			filters: { type: 'Category' } 
+			filters: { type: 'Category', published: 'Published' } 
 		},
 	},
 

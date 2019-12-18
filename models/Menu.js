@@ -68,13 +68,14 @@ Menu.add(
 			type: Types.Relationship,
 			ref: 'Page',
 			dependsOn: {type: 'Single'},
-			filters: {type: 'Single'},
+			filters: {type: 'Single', published: 'Published'},
 			label: 'Page'
 		},
 		categoryPage: {
 			type: Types.Relationship,
 			ref: 'Category',
 			dependsOn: {type: 'Category'},
+			filters: {type: 'Single', published: 'Published'},
 			label: 'Category'
 		},
 		externalLink: {
