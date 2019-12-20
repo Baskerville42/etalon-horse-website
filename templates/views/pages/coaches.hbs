@@ -1,0 +1,27 @@
+<div class="ui container">
+  <ol class="ui breadcrumbs">
+    <li><a href="/">Главная</a></li>
+    <li>{{category.categoryPage.title}}</li>
+  </ol>
+
+  <h1>{{category.categoryPage.title}}</h1>
+
+	{{{category.categoryPage.description}}}
+
+	<div class="ui thumbnails">
+		{{#each category.categoryPage.pages}}
+			<a class="item" href="/{{../category.path}}/{{this.path}}">
+				<figure>
+					{{#if this.pageImage.exists}}
+						<img src="{{cloudinaryUrl this.pageImage width=222 height=239 crop='fill'}}" alt="{{this.title}}">
+					{{else}}
+						<img src="/images/coach-category-example.png" alt="{{this.title}}">
+					{{/if}}
+					<figcaption>
+						<h4>{{{this.introtext}}}</h4>
+					</figcaption>
+				</figure>
+			</a>
+		{{/each}}
+	</div>
+</div>

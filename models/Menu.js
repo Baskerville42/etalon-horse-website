@@ -1,5 +1,15 @@
 var keystone = require('keystone');
+var fs = require('fs');
 var Types = keystone.Field.Types;
+
+var templateFiles = function () {
+	var files = fs.readdirSync('./templates/views/pages');
+	files = files.map(function (fileName) {
+		return fileName.split('.hbs')[0];
+	});
+	
+	return files;
+};
 
 /**
  * Menu Model
@@ -39,6 +49,11 @@ Menu.add(
 			type: Types.Textarea,
 			height: 5
 		},
+		cssClass: {
+			type: Types.Text,
+			label: 'CSS Class of the page',
+			default: null
+		}
 	},
 	
 	{heading: 'Content'},
@@ -53,13 +68,14 @@ Menu.add(
 			type: Types.Relationship,
 			ref: 'Page',
 			dependsOn: {type: 'Single'},
-			filters: {type: 'Single'},
+			filters: {type: 'Single', published: 'Published'},
 			label: 'Page'
 		},
 		categoryPage: {
 			type: Types.Relationship,
 			ref: 'Category',
 			dependsOn: {type: 'Category'},
+			filters: {type: 'Single', published: 'Published'},
 			label: 'Category'
 		},
 		externalLink: {
@@ -74,6 +90,12 @@ Menu.add(
 			label: 'Target',
 			note: 'The click behaviour for the link'
 		},
+	},
+
+	{heading: 'Template settings'},
+	{
+		useCustomTemplate: { type: Boolean, default: false },
+		template: { type: Types.Select, options: templateFiles(), dependsOn: { useCustomTemplate: true } }
 	},
 	
 	{heading: 'Publish settings'},

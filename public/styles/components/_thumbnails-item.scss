@@ -1,0 +1,83 @@
+.ui.thumbnails {
+  font-family: $font1;
+  font-size: 1rem;
+  display: flex;
+  margin: 5.8em -2.3em 0;
+
+  @media screen and (max-width: $desktop_size) {
+	justify-content: center;
+	align-items: center;
+	
+	@media screen and (orientation: landscape) {
+	  flex-direction: row;
+	  flex-wrap: wrap;
+	}
+	
+	@media screen and (orientation: portrait) {
+	  flex-direction: column;
+	}
+  }
+
+  @media screen and (min-width: $desktop_size) {
+	flex-direction: row;
+	flex-wrap: wrap;
+  }
+  
+  .item {
+	color: white;
+	padding: 0 calc(2.3em / 2);
+	margin-bottom: 2.8em;
+	height: 31.7em;
+	text-decoration: none;
+
+	@media screen and (max-width: $desktop_size) {
+	  width: 60vw;
+	}
+	
+	@media screen and (min-width: $desktop_size) {
+	  flex: 0 0 25%;
+	}
+	
+	&:hover {
+	  
+	  figure {
+		background-color: $green2;
+	  }
+	}
+  }
+  
+  figure {
+	margin: 0;
+	background-color: $grey1;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	transition: background-color 300ms linear;
+	will-change: background-color;
+  }
+
+  img {
+	flex: 0 1 auto;
+  }
+
+  figcaption {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+  }
+  
+  h4 {
+	font-size: 1.6em;
+	text-transform: uppercase;
+	text-align: center;
+	font-weight: 400;
+	margin-top: 0;
+	margin-bottom: .1em;
+  }
+  
+  div {
+	font-size: 1.4em;
+	text-align: center;
+  }
+}

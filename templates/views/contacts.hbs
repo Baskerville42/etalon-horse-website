@@ -1,26 +1,37 @@
-<div class="container">
-	<ol class="breadcrumb">
+<div class="ui container">
+	<ol class="ui breadcrumbs">
 		<li><a href="/">Главная</a></li>
 		<li>Контакты</li>
 	</ol>
 
-  <h1>КОНТАКТЫ</h1>
+  <h1>Контакты</h1>
 	<p>Все что от Вас требуется это позвонить по номеру телефона и записаться на удобное вам время:</p>
 	<ul>
-		<li>097-342-03-73 или 066-588-80-65 Инна</li>
-		<li>099-370-56-99 или 093-072-03-83 Алина</li>
-		<li>067-725-22-07 Юлия</li>
-		<li>093-741-04-37 Яна</li>
-		<li>063-199-95-63 Алина</li>
+		<li><a href="tel:+380973420373">097-342-03-73</a></li>
+		<li><a href="tel:+380665888065">066-588-80-65</a></li>
+		<li><a href="tel:+380993705699">099-370-56-99</a></li>
+		<li><a href="tel:+380930720383">093-072-03-83</a></li>
 	</ul>
 
-	<a href="mailto:info@etalon-horse.club">info@etalon-horse.club</a>
-	
-	<p>г.Боярка, ул. Чкалова 3-А. Маршрутка 825 с Теремков.</p>
+	<p>Так же ответим на все ваши вопросы по адресу <a href="mailto:info@etalon-horse.club">info@etalon-horse.club</a></p>
 	
 	<h3>Мы в социальных сетях</h3>
-	<a target="_blank" rel="nofollow" href="{{siteConfig.vk}}">Вконтакте</a>
-	<a target="_blank" rel="nofollow" href="{{siteConfig.fb}}">Facebook</a>
+	<div class="ui soc-links">
+		<a target="_blank" rel="nofollow" href="{{siteConfig.fb}}"><i class="fa fa-facebook-f" aria-hidden="true"></i></a>
+		<a target="_blank" rel="nofollow" href="{{siteConfig.in}}"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+		<a target="_blank" rel="nofollow" href="{{siteConfig.vk}}"><i class="fa fa-vk" aria-hidden="true"></i></a>
+	</div>
 </div>
 
 {{>contact-form}}
+
+<div class="ui map">
+	<div id="map"></div>
+	<div class="legend">
+		<ul>
+			<li class="active" data-route="812bus" onclick="calcRoute('812bus')"><i class="fa fa-map-marker" aria-hidden="true"></i> Автобус №812 со ст. м. Ипподром - Конный клуб «Эталон»</li>
+			<li data-route="825bus" onclick="calcRoute('825bus')"><i class="fa fa-map-marker" aria-hidden="true"></i> Автобус №825 со ст. м. Ипподром - Конный клуб «Эталон»</li>
+			<li data-route="drive" onclick="calcRoute('driving')"><i class="fa fa-map-marker" aria-hidden="true"></i> Своим транспортом от ст. м. Теремки</li>
+		</ul>
+	</div>
+</div>

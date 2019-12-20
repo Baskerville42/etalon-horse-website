@@ -1,3 +1,103 @@
-<div class="container">
+<div class="top-slider swiper-container">
+	<div class="swiper-wrapper">
+		<div class="swiper-slide">
+			<img src="/images/top-slider/slide-1.jpg" alt="Etalon-horse.club">
+		</div>
+		<div class="swiper-slide">
+			<img src="/images/top-slider/slide-2.jpg" alt="Etalon-horse.club">
+		</div>
+		<div class="swiper-slide">
+			<img src="/images/top-slider/slide-3.jpg" alt="Etalon-horse.club">
+		</div>
+		<div class="swiper-slide">
+			<img src="/images/top-slider/slide-4.jpg" alt="Etalon-horse.club">
+		</div>
+	</div>
+
+	<div class="slider-button-prev"></div>
+	<div class="slider-button-next"></div>
+</div>
+
+<section class="ui about container">
   {{{page.fulltext}}}
+	<a href="/about" class="ui btn btn-default">Читать дальше</a>
+</section>
+
+<section class="services">
+	<h2>Наши услуги</h2>
+	
+	<div class="ui container services-slider swiper-container">
+		<div class="swiper-wrapper">
+			
+			{{#if page.services.length}}
+				{{#each page.services as |service|}}
+					<div class="swiper-slide">
+						<div class="image-wrapper">
+							{{#if service.pageImage.exists}}
+								<img src="{{cloudinaryUrl service.pageImage width=186 height=186 crop='fill'}}" alt="{{service.title}}">
+							{{else}}
+								<img src="/images/service-example.png" alt="{{service.title}}">
+							{{/if}}
+						</div>
+						<h3>
+							{{#if service.title_alias}}
+								{{service.title_alias}}
+							{{else}}
+								{{service.title}}
+							{{/if}}
+						</h3>
+						<p>{{{service.description}}}</p>
+						<a href="/services/{{service.path}}" class="ui orange btn">Узнать больше</a>
+					</div>
+				{{/each}}
+			{{/if}}
+			
+		</div>
+
+		<div class="slider-button-prev"></div>
+		<div class="slider-button-next"></div>
+	</div>
+</section>
+
+<section class="ui coaches container">
+	<h2>Наши инструктора</h2>
+	<div class="coaches-list">
+		
+		{{#if page.coaches.length}}
+			{{#each page.coaches as |coach|}}
+				<a href="/coaches/{{coach.path}}" class="item">
+					<figure>
+						{{#if coach.pageImage.exists}}
+							<img src="{{cloudinaryUrl coach.pageImage width=294 height=321 crop='fill'}}" alt="{{coach.title}}">
+						{{else}}
+							<img src="/images/coach-example.png" alt="{{coach.title}}">
+						{{/if}}
+						<figcaption>
+							{{#if coach.title_alias}}
+								{{coach.title_alias}}
+							{{else}}
+								{{coach.title}}
+							{{/if}}
+						</figcaption>
+					</figure>
+				</a>
+			{{/each}}
+		{{/if}}
+		
+	</div>
+	<a href="/coaches" class="ui btn btn-default">Читать дальше</a>
+</section>
+
+<div class="ui map">
+	<div id="map" data-zoom="17"></div>
+	<div class="text legend">
+		<p>Все что от Вас требуется это позвонить по номеру телефона и записаться на удобное вам время:</p>
+		<p>
+			<strong><a href="tel:+380973420373">097-342-03-73</a></strong><br>
+			<strong><a href="tel:+380665888065">066-588-80-65</a></strong><br>
+			<strong><a href="tel:+380993705699">099-370-56-99</a></strong><br>
+			<strong><a href="tel:+380930720383">093-072-03-83</a></strong>
+		</p>
+		<p>Запись предварительная.</p>
+	</div>
 </div>

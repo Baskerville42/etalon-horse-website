@@ -7,10 +7,15 @@ let Types = keystone.Field.Types;
  */
 let Home = new keystone.List('Home', {
 	singular: 'Home Page',
-	track: true,
-	sortable: true,
 	nocreate: true,
-	nodelete: true
+	nodelete: true,
+	track: {
+		updatedAt: true,
+		updatedBy: true
+	},
+	map: {
+		name: 'title'
+	},
 });
 
 Home.add(
@@ -39,6 +44,18 @@ Home.add(
 		fulltext: {
 			type: Types.Html,
 			wysiwyg: true
+		},
+		services: {
+			type: Types.Relationship,
+			ref: 'Page',
+			many: true,
+			filters: { published: 'Published' },
+		},
+		coaches: {
+			type: Types.Relationship,
+			ref: 'Page',
+			many: true,
+			filters: { published: 'Published' },
 		}
 	},
 

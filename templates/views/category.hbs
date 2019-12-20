@@ -1,5 +1,5 @@
-<div class="container">
-  <ol class="breadcrumb">
+<div class="ui container">
+  <ol class="ui breadcrumbs">
     <li><a href="/">Главная</a></li>
     <li>{{category.categoryPage.title}}</li>
   </ol>
@@ -8,16 +8,28 @@
 
 	{{{category.categoryPage.description}}}
 
-	{{#each category.categoryPage.pages}}
-    <li>
-      <a href="/{{../category.path}}/{{this.path}}">
-				{{#if this.title_alias}}
-					{{this.title_alias}}
-				{{else}}
-					{{this.title}}
-				{{/if}}
+	<div class="ui thumbnails">
+		{{#each category.categoryPage.pages}}
+			<a class="item" href="/{{../category.path}}/{{this.path}}">
+				<figure>
+					{{#if this.pageImage.exists}}
+						<img src="{{cloudinaryUrl this.pageImage width=222 height=239 crop='fill'}}" alt="{{this.title}}">
+					{{else}}
+						<img src="/images/horse-example.png" alt="{{this.title}}">
+					{{/if}}
+					<figcaption>
+						<h4>
+							{{#if this.title_alias}}
+								{{this.title_alias}}
+							{{else}}
+								{{this.title}}
+							{{/if}}
+						</h4>
+							
+						<div>{{{this.introtext}}}</div>
+					</figcaption>
+				</figure>
 			</a>
-      <div>{{{this.introtext}}}</div>
-    </li>
-	{{/each}}
+		{{/each}}
+	</div>
 </div>
