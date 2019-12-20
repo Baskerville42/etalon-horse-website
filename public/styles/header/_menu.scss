@@ -147,8 +147,8 @@
     height: 100%;
     color: white;
     text-decoration: none;
-	padding-left: 1.15rem;
-	padding-right: 1.15rem;
+	padding-left: .75rem;
+	padding-right: .75rem;
     transition: color 300ms ease-in;
     will-change: color;
 
@@ -211,7 +211,7 @@
 
 		  ul {
 			display: block;
-			top: calc(100% - 1px);
+			top: calc(100% - 3px);
 			right: 0;
 		  }
 		}
