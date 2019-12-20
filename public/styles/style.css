@@ -4174,5 +4174,11 @@ a {
   .page-slider img {
     max-width: 100%; }
 
+.services-page .ui.layout main {
+  padding-bottom: 0; }
+
+.services-page .ui.contact-form {
+  margin-top: 3rem; }
+
 .services-page .ui.description-list {
   margin: 3.8rem 0; }

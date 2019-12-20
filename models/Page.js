@@ -72,6 +72,10 @@ Page.add(
 			ref: 'Category',
 			dependsOn: {type: 'Category'}
 		},
+		showContactsForm: {
+			type: Types.Boolean,
+			note: 'Show contacts form at the bottom of the page',
+		},
 		slider: { type: Types.CloudinaryImages, folder: 'etalon-horse-website' }
 	},
 
