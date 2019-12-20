@@ -7,9 +7,9 @@ let Types = keystone.Field.Types;
  */
 let Config = new keystone.List('Config', {
 	singular: 'Config Page',
+	nocreate: true,
+	nodelete: true,
 	track: true,
-	// nocreate: true,
-	// nodelete: true
 });
 
 Config.add(
